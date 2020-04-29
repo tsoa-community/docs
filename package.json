@@ -1,0 +1,17 @@
+{
+  "name": "tsoa-docs",
+  "version": "0.0.1",
+  "description": "The documentation repository for tsoa",
+  "main": "index.js",
+  "author": "WoH",
+  "license": "MIT",
+  "scripts": {
+    "build": "vuepress build",
+    "dev": "vuepress dev"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-medium-zoom": "^1.4.1",
+    "prettier": "^2.0.5",
+    "vuepress": "^1.4.1"
+  }
+}
