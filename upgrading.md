@@ -1,3 +1,7 @@
+---
+sidebarDepth: 1
+---
+
 # Upgrading from tsoa 2.5
 
 ::: warning
@@ -78,8 +82,6 @@ type Pick<T, K extends keyof T> = {
 };
 ```
 
-_One of the types currently not covered yet is the `Record` type. Please note that this is experimental and there may be cases we unknowingly do not cover yet. Please report any issues you find_
-
 ### Support for conditional types
 
 As of version 2.8, TypeScript supports conditional types. The syntax is very close to the ternary operator and enables expression of 2 (or more) different types based on a condition. Please refer to the [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/advanced-types.html#conditional-types) for details.
@@ -118,15 +120,15 @@ The combination of mapped and conditional types allow for powerful utility types
 type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
 ```
 
-### Support for Record
+### Support for `Record<>` [\#662](https://github.com/lukeautry/tsoa/pull/662) ([Eywek](https://github.com/Eywek))`
 
-### Enums: See #594 for the Spec and #599 and #593
+### Enums: See [\#594](https://github.com/lukeautry/tsoa/pull/594) for the Spec and [\#599](https://github.com/lukeautry/tsoa/pull/599) and [\#593](https://github.com/lukeautry/tsoa/pull/593)
 
-### Null Keyword: See #601
+### Null Keyword: See [\#601](https://github.com/lukeautry/tsoa/pull/601)
 
-### Ability to use a colon delimiter instead of bracelets in path (@itamarco)
+### Ability to use a colon delimiter instead of bracelets in path [\#602](https://github.com/lukeautry/tsoa/pull/602)([itamarco](https://github.com/itamarco))
 
-### added @example support for parameters / properties #616
+### added @example support for parameters / properties [\#616](https://github.com/lukeautry/tsoa/pull/616) ([jfrconley](https://github.com/jfrconley))
 
 ### feat: ignore class methods [\#643](https://github.com/lukeautry/tsoa/pull/643) ([Eywek](https://github.com/Eywek))
 
@@ -154,7 +156,9 @@ type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
 
 ### Null vs. undefined
 
-Unless you declare a type to accept `null`, we will no longer mark your optional properties as `nullable: true` or `x-nullable: true`
+Unless you declare a type to accept `null`, we will no longer mark your optional properties as `nullable: true` or `x-nullable: true`.
+This applies to validation aswell, so while sending `null` instead of sending `undefined` / no properties on an object was fine, now it's not any more.
+Sending `undefined` instead of, i.e. `string | null` is also rejected by the validation.
 
 ### Naming
 
@@ -167,13 +171,14 @@ Proceed with caution and report issues.
 
 ### Improve nested object validation
 
-See #574 and #575
+See [\#574](https://github.com/lukeautry/tsoa/pull/574) and [\#575](https://github.com/lukeautry/tsoa/pull/575).
+These SHOULD not be breaking changes, but since it affects validation, better safe than sorry.
 
 ### Change default behavior when no host is defined:
 
 Explicitly set your host in case you want to have absolute urls. This is a breaking change for those who were using OpenAPI 3, but it actually brings tsoa into parity with how we were handling the `host` property in Swagger 2. Previously OpenAPI 3 users had to result to passing `null` which we all felt was strange. Now omitting `host` will cause tsoa to assume the url should be relative.
 
-### Remove .. in fieldErrors (145222af5fb044d0de2afb44b88fedefa4cb6124):
+### Remove .. in fieldErrors
 
 When detecting illegal additional properties (if you are using tsoa setting `additionalProperties: 'throw-on-extras'`), the key on the error would contain an additional dot.
 
@@ -252,4 +257,4 @@ Valid settings are now: `'throw-on-extras' | 'silently-remove-extras' | 'ignore'
 
 _For reference, see the TS interface of the entire config [here](https://tsoa-community.github.io/reference/interfaces/_index_.config.html)\_
 
-### typescript union should be implemented as anyOf [\#671](https://github.com/lukeautry/tsoa/issues/671)
+### TypeScript Unions are now implemented as `anyOf` in OpenAPI [\#671](https://github.com/lukeautry/tsoa/issues/671)
