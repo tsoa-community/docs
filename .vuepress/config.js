@@ -66,6 +66,7 @@ module.exports = {
         collapsable: false,
         children: ["file-upload", "path-mapping", "templates", "routes"],
       },
+      "upgrading",
     ],
   },
 };
