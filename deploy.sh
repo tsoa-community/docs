@@ -4,7 +4,7 @@
 set -e
 
 # build
-BASE_URL=/docs yarn run build
+BASE_URL=/docs/ yarn run build
 
 # navigate into the build output directory
 cd .vuepress/dist

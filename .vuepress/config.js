@@ -33,6 +33,11 @@ module.exports = {
         link: "https://tsoa-community.github.io/reference/modules/_index_.html",
         position: "left",
       },
+      {
+        text: "GitHub",
+        link: "https://github.com/lukeautry/tsoa",
+        position: "left",
+      },
     ],
     sidebar: [
       {
