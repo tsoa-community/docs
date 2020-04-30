@@ -1,11 +1,7 @@
 module.exports = {
   title: "tsoa",
   base: process.env.BASE_URL || "/",
-  markdown: {
-    anchor: {
-      permalink: false,
-    },
-  },
+  markdown: {},
   plugins: [
     "@vuepress/medium-zoom",
     ["@vuepress/back-to-top", true],
