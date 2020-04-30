@@ -276,7 +276,10 @@ node build/server.js
 
 ## What's next?
 
-- Manually involing `tsc` and `tsoa routes` in development isn't very convenient. We can improve that using [live reloading](/Live-reloading).
+- Manually involing `tsc` and `tsoa routes` in development isn't very convenient.
 - Inspecting our first OpenAPI specification and supercharging our feedback loop by serving an up-to-date version of SwaggerUI during development.
+
+We can improve that using [live reloading](/Live-reloading).
+
 - Improving our response for validation errors using proper error handling
 - Using JSON Schema keywords for advanced validation

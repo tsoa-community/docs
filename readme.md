@@ -16,7 +16,7 @@ footer: MIT Licensed
     <p>Automatically generate OpenAPI Specifications from your TypeScript Code</p>
   </div>
   <div class="feature">
-    <h2>Typesafe</h2>
+    <h2>Type-safe</h2>
     <p>No more manual validation. tsoa makes sure the input can be assigned according to the types you specified or will throw automatically if it can't.</p>
   </div>
   <div class="feature">
