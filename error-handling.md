@@ -116,7 +116,7 @@ interface ValidateErrorJSON {
   details: { [name: string]: unknown };
 }
 
-@Route("Users")
+@Route("users")
 export class UsersController extends Controller {
   // more code here
 

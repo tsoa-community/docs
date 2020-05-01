@@ -173,14 +173,14 @@ import {
 import { User } from "./user";
 import { UserService, UserCreationParams } from "./userService";
 
-@Route("Users")
+@Route("users")
 export class UsersController extends Controller {
-  @Get("{id}")
+  @Get("{userId}")
   public async getUser(
-    @Path() id: number,
+    @Path() userId: number,
     @Query() name?: string
   ): Promise<User> {
-    return new UserService().get(id, name);
+    return new UserService().get(userId, name);
   }
 
   @SuccessResponse("201", "Created") // Custom success response

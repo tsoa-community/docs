@@ -1,7 +1,7 @@
 # Decorators
 
-Please note that this Section only covers Decorators that are not described seperately, such as [`@Response`]("error-handling") or [`Parameters`]("getting-started").
-For a full overwiew, please check out the [API Reference](https://tsoa-community.github.io/reference/interfaces/_index_.config.html).
+Please note that this Section only covers Decorators that are not described separately, such as [`@Response`]("error-handling") or [`Parameters`]("getting-started").
+For a full overview, please check out the [API Reference](https://tsoa-community.github.io/reference/interfaces/_index_.config.html).
 
 ## Security
 
@@ -34,7 +34,7 @@ Tags are defined with the `@Tags('tag1', 'tag2', ...)` decorator in the controll
 ```ts
 import { Get, Route, Response, Tags } from "tsoa";
 
-@Route("user")
+@Route("users")
 @Tags("User")
 export class UserController {
   @Response<ErrorResponseModel>("Unexpected error")
@@ -137,11 +137,11 @@ import * as express from "express";
 import { Get, Route, Request } from "tsoa";
 import { User, UserCreationRequest } from "../models/user";
 
-@Route("Users")
+@Route("users")
 export class UsersController {
-  @Get("{id}")
+  @Get("{userId}")
   public async getUser(
-    id: number,
+    userId: number,
     @Request() request: express.Request
   ): Promise<User> {
     // TODO: implement some code that uses the request as well
@@ -158,11 +158,11 @@ import * as koa from "koa";
 import { Get, Route, Request } from "tsoa";
 import { User, UserCreationRequest } from "../models/user";
 
-@Route("Users")
+@Route("users")
 export class UsersController {
-  @Get("{id}")
+  @Get("{userId}")
   public async getUser(
-    id: number,
+    userrId: number,
     @Request() request: koa.Request
   ): Promise<User> {
     const ctx = request.ctx;

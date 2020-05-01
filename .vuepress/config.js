@@ -51,6 +51,7 @@ module.exports = {
           "generating",
           "live-reloading",
           "error-handling",
+          "jsdoc",
           "di",
           "authentication",
           "decorators",
