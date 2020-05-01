@@ -7,7 +7,7 @@ In order stay true to our efforts to avoid code duplication, tsoa uses JSDoc bas
 tsoa does not check your descriptions and examples.
 
 We recommend using a linter
-(we love [Spectral](https://github.com/stoplightio/spectral/blob/develop/README.md)) to ensure your specifications aren't just correct,
+(we love [Spectral](https://stoplight.io/p/docs/gh/stoplightio/spectral)) to ensure your specifications aren't just correct,
 but also contain descriptions and correct examples.
 :::
 
@@ -211,7 +211,7 @@ You may also just want to demonstrate tsoa's validation :smirk:
 
 However, if you'd want to improve that by logging warnings, tsoa would love to see a PR for this.
 For now, we recommend using a linter
-(we love [Spectral](https://github.com/stoplightio/spectral/blob/develop/README.md)) to ensure your specifications aren't just correct,
+(we love [Spectral](https://stoplight.io/p/docs/gh/stoplightio/spectral)) to ensure your specifications aren't just correct,
 but also contain descriptions and correct examples.
 :::
 
