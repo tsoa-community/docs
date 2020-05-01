@@ -4,10 +4,7 @@ sidebarDepth: 1
 
 # Upgrading from tsoa 2.5
 
-::: warning
-This guide is WIP.
-We will provide a comprehensive guide as soon as possible. For now, please follow each of the upgrades sequentially.
-:::
+[Jump to the breaking changes](#breaking-changes)
 
 ## New Features
 
@@ -255,6 +252,6 @@ EntryFile and noImplicitAdditionalProperties can now be set on the swagger/route
 Also, boolean settings for noImplicitAdditionalProperties have been removed: #503
 Valid settings are now: `'throw-on-extras' | 'silently-remove-extras' | 'ignore'`, everything else falls back to `'ignore'`.
 
-_For reference, see the TS interface of the entire config [here](https://tsoa-community.github.io/reference/interfaces/_index_.config.html)\_
+**For reference, see the TS interface of the entire config [here](https://tsoa-community.github.io/reference/interfaces/_index_.config.html)**
 
 ### TypeScript Unions are now implemented as `anyOf` in OpenAPI [\#671](https://github.com/lukeautry/tsoa/issues/671)
