@@ -43,8 +43,8 @@ Formats will generally not validated, except for `format: date(time)`, which wil
 
 #### Date
 
-- isDateTime
-- isDate
+- isDateTime for setting custom error messages
+- isDate for setting custom error messages
 - minDate
 - maxDate
 
