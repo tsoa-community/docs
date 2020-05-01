@@ -6,7 +6,7 @@ While certain issues, like type mismatches can be avoided by inferring examples 
 \* Which is limited as well, i.e. patterns will be ignored, and just sending the string "string" every time is somewhat suboptimal if that string actually carries meaning.
 
 ::: tip
-tsoa does not (yet) check your examples.
+tsoa does not (yet) check your JSDoc examples.
 Incorrect examples will not break your compilation, because OpenAPI [explicitly allows anything](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#fixed-fields-20).
 You may also just want to demonstrate tsoa's validation :smirk:
 
@@ -19,6 +19,75 @@ but also contain [descriptions](./descriptions) and correct examples.
 OpenAPI 2 only allows one example per model/property/parameter. Although OpenAPI 3 supports multiple examples, tsoa does not support this behavior yet.
 If this is something you want to see or need, we'd love to receive a PR for that.
 :::
+
+## Response examples
+
+In order to provide an example response, tsoa offers a [`@Example()`](https://tsoa-community.github.io/reference/modules/_index_.html#example) Decorator.
+
+::: tip
+Providing the type you're writing the example for as a type argument `T` to
+
+```ts
+@Example<T>(example: T)
+```
+
+is not necessary, but may help you catch bugs.
+:::
+
+This decorator is used to specify a response for the default response,
+but you can add examples for other responses ([`@Response()`](https://tsoa-community.github.io/reference/modules/_index_.html#response), used for additional responses, often caused by [errors](./error-handling#specifying-error-response-types-for-openapi) by providing them as the third argument as well.
+
+### Default response
+
+```ts {3-9}
+@Route("users")
+export class UsersController extends Controller {
+  @Example<User>({
+    id: "52907745-7672-470e-a803-a2f8feb52944",
+    name: "tsoa user",
+    email: "hello@tsoa.com",
+    phoneNumbers: [],
+    status: "Happy",
+  })
+  @Get("{userId}")
+  public async getUser(
+    @Path() userId: UUID,
+    @Query() name: string
+  ): Promise<User> {
+    return new UserService().get(userId, name);
+  }
+}
+```
+
+### Additional Responses
+
+```ts {9-17}
+@Route("users")
+export class UsersController extends Controller {
+  /**
+   * Add a new user. Remember that the demo API will not persist this data.
+   *
+   */
+  @Post()
+  @SuccessResponse("201", "Created") // Custom success response
+  @Response<ValidateErrorJSON>(422, "Validation Failed", {
+    message: "Validation failed",
+    details: {
+      requestBody: {
+        message: "id is an excess property and therefore not allowed",
+        value: "52907745-7672-470e-a803-a2f8feb52944",
+      },
+    },
+  })
+  public async createUser(
+    @Body() requestBody: UserCreationParams
+  ): Promise<void> {
+    this.setStatus(201); // set return status 201
+    new UserService().create(requestBody);
+    return;
+  }
+}
+```
 
 ## Parameter examples
 
@@ -113,11 +182,3 @@ export interface User {
   phoneNumbers: string[];
 }
 ```
-
-## Response examples
-
-Most likely, this will be a type reference to a type defined somewhere else.
-You should set the example there, since the type reference will be be transformed to schema reference (using _\$ref_), and the example must be ignored,
-since any properties that are placed next to _\$ref_ (OpenAPI's mechanism to link to the schema) must be ignored.
-
-For more info, check out the relevant parts of the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#schemaObject) and [JSON Schema Core](https://tools.ietf.org/html/draft-wright-json-schema-00#section-7)
