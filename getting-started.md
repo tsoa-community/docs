@@ -282,4 +282,4 @@ node build/server.js
 We can improve that using [live reloading](./live-reloading).
 
 - Improving our response for validation errors using proper [error handling](./error-handling)
-- Using [Descriptions](./jsdoc#descriptions), [Examples](./jsdoc#examples) and [Annotations](./jsdoc#json-schema-keywords) for advanced validation and better documentation
+- Using [Descriptions](./descriptions), [Examples](./examples) and [Annotations](./annotations) for advanced validation and better documentation
