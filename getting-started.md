@@ -111,7 +111,7 @@ While the default ts config will work for this guide, an improved tsconfig.json 
 
 :::
 
-## Defing our first model
+## Defining our first model
 
 If you already have an OpenAPI Specification, you can use existing OpenAPI tooling to generate your Models or Interfaces.
 Otherwise, let's define a `User` Interface in `src/users/user.ts`.
@@ -276,10 +276,10 @@ node build/server.js
 
 ## What's next?
 
-- Manually involing `tsc` and `tsoa routes` in development isn't very convenient.
+- Manually invoking `tsc` and `tsoa routes` in development isn't very convenient.
 - Inspecting our first OpenAPI specification and supercharging our feedback loop by serving an up-to-date version of SwaggerUI during development.
 
 We can improve that using [live reloading](./live-reloading).
 
 - Improving our response for validation errors using proper [error handling](./error-handling)
-- Using JSON Schema keywords for advanced validation
+- Using [Descriptions](./jsdoc#descriptions), [Examples](./jsdoc#examples) and [Annotations](./jsdoc#json-schema-keywords) for advanced validation and better documentation
