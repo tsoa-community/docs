@@ -13,7 +13,7 @@ footer: MIT Licensed
 <div class="features">
   <div class="feature">
     <h2>TypeScript ♥ OpenAPI</h2>
-    <p>Automatically generate OpenAPI Specifications from your TypeScript Code</p>
+    <p>Automatically get accurate, complete, correct and up-to-date OpenAPI Specifications from your TypeScript code</p>
   </div>
   <div class="feature">
     <h2>Type-safe</h2>
