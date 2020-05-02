@@ -29,7 +29,7 @@ yarn add -D nodemon ts-node
 
 ### Creating a nodemon config
 
-Now, let's create a `nodemon.json` insied the root folder of our project that looks like this:
+Now, let's create a `nodemon.json` inside the root folder of our project that looks like this:
 
 ```json
 {
