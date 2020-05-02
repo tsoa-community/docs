@@ -63,7 +63,7 @@ Next, we set the output directory for out OpenAPI specification (OAS) and our `r
 
 We set the `specVersion` to `3` so tsoa will generate an OpenAPI v3 specification.
 
-For a full list of all the possible config, take a look at the [API Reference](https://tsoa-community.github.io/reference/interfaces/_index_.config.html)
+For a full list of all the possible config, take a look at the [API Reference](https://tsoa-community.github.io/reference/interfaces/config.html)
 
 ::: tip
 While the default ts config will work for this guide, an improved tsconfig.json would look something like this:
@@ -222,7 +222,7 @@ If the parameter name is equal to the http message parameter, you may omit the a
 
 :::
 
-A full list of all the decorators can be found [here](https://tsoa-community.github.io/reference/modules/_index_.html#body).
+A full list of all the decorators can be found [here](https://tsoa-community.github.io/reference/globals.html#body).
 
 ## Creating our express server
 

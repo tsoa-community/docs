@@ -35,7 +35,7 @@ Options:
   --basePath  Base API path                                                                     [string]
 ```
 
-You can find the Reference for the tsoa configuration file [here](https://tsoa-community.github.io/reference/interfaces/_index_.config.html)
+You can find the Reference for the tsoa configuration file [here](https://tsoa-community.github.io/reference/interfaces/config.html)
 
 For information on the configuration object (tsoa.json), you may also me interested in:
 
@@ -75,5 +75,3 @@ import {
 ```
 
 **Note:** If you use tsoa pragmatically, please be aware that tsoa's methods can (under rare circumstances) change in minor and patch releases. But if you are using tsoa in a .ts file, then TypeScript will help you migrate to any changes. We reserve this right to change what are essentially our internal methods so that we can continue to provide incremental value to the majority user (our CLI users). The CLI however will only receive breaking changes during a major release.
-
-The API Reference documentation for using tsoa programatically can be found [here](https://tsoa-community.github.io/reference/modules/_cli_.html).

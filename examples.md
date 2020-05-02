@@ -22,7 +22,7 @@ If this is something you want to see or need, we'd love to receive a PR for that
 
 ## Response examples
 
-In order to provide an example response, tsoa offers a [`@Example()`](https://tsoa-community.github.io/reference/modules/_index_.html#example) Decorator.
+In order to provide an example response, tsoa offers a [`@Example()`](https://tsoa-community.github.io/reference/globals.html#example) Decorator.
 
 ::: tip
 Providing the type you're writing the example for as a type argument `T` to
@@ -35,7 +35,7 @@ is not necessary, but may help you catch bugs.
 :::
 
 This decorator is used to specify a response for the default response,
-but you can add examples for other responses ([`@Response()`](https://tsoa-community.github.io/reference/modules/_index_.html#response), used for additional responses, often caused by [errors](./error-handling#specifying-error-response-types-for-openapi) by providing them as the third argument as well.
+but you can add examples for other responses ([`@Response()`](https://tsoa-community.github.io/reference/globals.html#response), used for additional responses, often caused by [errors](./error-handling#specifying-error-response-types-for-openapi) by providing them as the third argument as well.
 
 ### Default response
 
