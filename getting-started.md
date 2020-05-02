@@ -199,16 +199,16 @@ Let's take a step back and talk about what's going on here.
 As you can hopefully already tell, we are defining a `/users/` route using the `@Route()` decorator above our controller class.
 
 Additionally, we define 2 methods: `getUser` and `createUser`.
-The `@Get()` decorator in combination with our base route `/users/` will tell tsoa to invoke this method for every _GET_ request to `/users/{{id}}`, where _{id}_ is a template.
+The `@Get()` decorator in combination with our base route `/users/` will tell tsoa to invoke this method for every _GET_ request to `/users/{{userId}}`, where _{userId}_ is a template.
 
 ::: tip OpenAPI Path Templating
 Routing in tsoa is closely mirroring OpenAPI's path templating for compatibility reasons.
 Path templating refers to the usage of template expressions, delimited by curly braces ({}), to mark a section of a URL path as replaceable using path parameters.
 :::
 
-Under the hood, this would be like defining `app.get('users/:id')`.
+Under the hood, this would be like defining `app.get('users/:userId')`.
 While express allows you to use regex-ish route definitions, we prefer to split the routing and the validation more clearly.
-Because you're asking for the _id_ to be a _number_ by using the `@Path()` decorator with an `id` of type number, tsoa will reject passing i.e. a _string_ here.
+Because you're asking for the _id_ to be a _number_ by using the `@Path()` decorator with an `userId` of type number, tsoa will reject passing i.e. a _string_ here.
 Similarly, if you want to accept a _string_ with a certain pattern, you can do that using JSON Schema annotations. You can learn more about that [here](#what-s-next).
 
 tsoa will allow 4 types of parameters: Path parameters (using `@Path()`), Query Parameters (`@Query()`), Header Parameters (`@Header()`) and Body Parameters (`@Body()` or individual properties using `@BodyProp()`).
