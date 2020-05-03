@@ -24,7 +24,7 @@ We will use [nodemon](https://nodemon.io/) and [ts-node](https://github.com/Type
 ### Installing nodemon and ts-node
 
 ```bash
-yarn add -D nodemon ts-node
+yarn add -D nodemon ts-node concurrently
 ```
 
 ### Creating a nodemon config
@@ -33,7 +33,7 @@ Now, let's create a `nodemon.json` inside the root folder of our project that lo
 
 ```json
 {
-  "exec": "tsoa spec-and-routes && ts-node src/server.ts",
+  "exec": "ts-node src/server.ts",
   "watch": ["src"],
   "ext": "ts"
 }
@@ -48,7 +48,7 @@ Let's automatically start this setup with `yarn run dev`, and, while we're at it
   "name": "starter",
   "version": "0.0.1",
 + "scripts: {
-+   "dev": "nodemon",
++   "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
 +   "build": "tsoa spec-and-routes && tsc"
 +   "start": "node build/server.js"
 + },
