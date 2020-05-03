@@ -54,7 +54,7 @@ export class UsersController extends Controller {
     @Path() userId: UUID,
     @Query() name: string
   ): Promise<User> {
-    return new UserService().get(userId, name);
+    return new UsersService().get(userId, name);
   }
 }
 ```
@@ -83,7 +83,7 @@ export class UsersController extends Controller {
     @Body() requestBody: UserCreationParams
   ): Promise<void> {
     this.setStatus(201); // set return status 201
-    new UserService().create(requestBody);
+    new UsersService().create(requestBody);
     return;
   }
 }
@@ -111,7 +111,7 @@ export class UsersController extends Controller {
     @Path() userId: UUID,
     @Query() name: string
   ): Promise<User> {
-    return new UserService().get(userId, name);
+    return new UsersService().get(userId, name);
   }
 }
 ```

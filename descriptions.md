@@ -31,7 +31,7 @@ export class UsersController extends Controller {
     @Path() userId: number,
     @Query() name?: string
   ): Promise<User> {
-    return new UserService().get(userId, name);
+    return new UsersService().get(userId, name);
   }
 }
 ```
@@ -64,7 +64,7 @@ export class UsersController extends Controller {
     @Path() userId: number,
     @Query() name?: string
   ): Promise<User> {
-    return new UserService().get(userId, name);
+    return new UsersService().get(userId, name);
   }
 }
 ```

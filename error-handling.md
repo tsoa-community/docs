@@ -109,7 +109,7 @@ However, we have a way for you to manually specify these returns:
 ```ts
 import { Body, Controller, Post, Route, Response, SuccessResponse } from "tsoa";
 import { User } from "./user";
-import { UserService, UserCreationParams } from "./userService";
+import { UsersService, UserCreationParams } from "./usersService";
 
 interface ValidateErrorJSON {
   message: "Validation failed";
@@ -127,7 +127,7 @@ export class UsersController extends Controller {
     @Body() requestBody: UserCreationParams
   ): Promise<void> {
     this.setStatus(201); // set return status 201
-    new UserService().create(requestBody);
+    new UsersService().create(requestBody);
     return;
   }
 }

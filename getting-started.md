@@ -129,13 +129,13 @@ export interface User {
 Before we start defining our Controller, it's usually a good idea to create a Service that handles interaction with our Models instead of shoving all that logic into the controller layer.
 
 ```ts
-// user/userService.ts
+// user/usersService.ts
 import { User } from "./user";
 
 // A post request should not contain an id.
 export type UserCreationParams = Pick<User, "email" | "name" | "phoneNumbers">;
 
-export class UserService {
+export class UsersService {
   public get(id: number, name?: string): User {
     return {
       id,
@@ -171,7 +171,7 @@ import {
   SuccessResponse,
 } from "tsoa";
 import { User } from "./user";
-import { UserService, UserCreationParams } from "./userService";
+import { UsersService, UserCreationParams } from "./usersService";
 
 @Route("users")
 export class UsersController extends Controller {
@@ -180,7 +180,7 @@ export class UsersController extends Controller {
     @Path() userId: number,
     @Query() name?: string
   ): Promise<User> {
-    return new UserService().get(userId, name);
+    return new UsersService().get(userId, name);
   }
 
   @SuccessResponse("201", "Created") // Custom success response
@@ -189,7 +189,7 @@ export class UsersController extends Controller {
     @Body() requestBody: UserCreationParams
   ): Promise<void> {
     this.setStatus(201); // set return status 201
-    new UserService().create(requestBody);
+    new UsersService().create(requestBody);
     return;
   }
 }
