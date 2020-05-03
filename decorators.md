@@ -36,7 +36,7 @@ import { Get, Route, Response, Tags } from "tsoa";
 
 @Route("users")
 @Tags("User")
-export class UserController {
+export class UsersController {
   @Response<ErrorResponseModel>("Unexpected error")
   @Get("UserInfo")
   @Tags("Info", "Get")
