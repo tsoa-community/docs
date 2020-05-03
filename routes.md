@@ -51,7 +51,7 @@ import { RegisterRoutes } from "./routes";
 
 // ########################################################################
 // controllers need to be referenced in order to get crawled by the generator
-import "./controllers/usersController";
+import "./users/usersController";
 // ########################################################################
 
 const app = express();

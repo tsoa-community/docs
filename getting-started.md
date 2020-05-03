@@ -129,7 +129,7 @@ export interface User {
 Before we start defining our Controller, it's usually a good idea to create a Service that handles interaction with our Models instead of shoving all that logic into the controller layer.
 
 ```ts
-// user/usersService.ts
+// src/users/usersService.ts
 import { User } from "./user";
 
 // A post request should not contain an id.

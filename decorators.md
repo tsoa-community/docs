@@ -131,7 +131,7 @@ export class HiddenController {
 To access the request object of express in a controller method use the `@Request`-decorator:
 
 ```typescript
-// controllers/usersController.ts
+// src/users/usersController.ts
 
 import * as express from "express";
 import { Get, Route, Request } from "tsoa";
@@ -152,7 +152,7 @@ export class UsersController {
 To access Koa's request object (which has the ctx object) in a controller method use the `@Request`-decorator:
 
 ```typescript
-// controllers/usersController.ts
+// src/users/usersController.ts
 
 import * as koa from "koa";
 import { Get, Route, Request } from "tsoa";
