@@ -102,12 +102,13 @@ In order to dynamically import json files, set
 
 ```json
 {
-  "compilerOptions" {
+  "compilerOptions": {
     "resolveJsonModule": true
   }
 }
 ```
 
+in your `tsoa.conf` file.
 :::
 
 ### Inspecting the Documentation

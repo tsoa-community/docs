@@ -40,7 +40,7 @@ If you wrap your DI's API or even a ControllerFactory to accept this call and re
 ## InversifyJS
 
 Here is some example code to setup the container and your controller with inversify.js.
-Usually, you'll have to tell inversify how to create your controller, but since this is not supposed to cover inversiy,
+Usually, you'll have to tell inversify how to create your controller, but since this is not supposed to cover inversify,
 we'll just refer to their [docs](http://inversify.io/).
 For convenience, we will use inversify-binding-controllers here, which makes it very simple to tell inversify how to create tsoa controllers.
 More information can be found [here](https://github.com/inversify/inversify-binding-decorators).
