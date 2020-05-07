@@ -108,7 +108,7 @@ In order to dynamically import json files, set
 }
 ```
 
-in your `tsoa.conf` file.
+in your `tsconfig.json` file.
 :::
 
 ### Inspecting the Documentation
