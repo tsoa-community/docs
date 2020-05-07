@@ -38,7 +38,7 @@ Examples:
 - format
 
 ::: danger
-Formats will generally not validated, except for `format: date(time)`, which will automatically be generated for TS type `Date`.
+Formats will generally not be validated, except for `format: date(time)`, which will automatically be generated for TS type `Date`.
 :::
 
 #### Date
