@@ -103,7 +103,7 @@ public async find(): Promise<any> {
 
 ## Hidden
 
-Excludes this endpoint from the generated OpenAPI Specification document.
+Use on methods to exclude an endpoint from the generated OpenAPI Specification document.
 
 ```ts
   @Get()
@@ -113,7 +113,7 @@ Excludes this endpoint from the generated OpenAPI Specification document.
   }
 ```
 
-It can also be set at the controller level to exclude all of its endpoints from the OpenAPI Specification document.
+Use on controllers to exclude all of its endpoints from the generated OpenAPI Specification document.
 
 ```ts
 @Hidden()
@@ -124,6 +124,19 @@ export class HiddenController {
   @Post()
   public async create(): Promise<any> {}
 }
+```
+
+Use on `@Query` parameters to exclude query params from the generated OpenAPI Specification document. The parameter must either allow undefined or have a default value to be hidden.
+
+```ts
+  @Get()
+  public async find(
+    @Query() normalParam: string,
+    @Query() @Hidden() defaultSecret = true,
+    @Query() @Hidden() optionalSecret?: string
+  ): Promise<any> {
+
+  }
 ```
 
 ## Request
