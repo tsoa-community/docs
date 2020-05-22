@@ -16,8 +16,9 @@ but also contain [descriptions](./descriptions) and correct examples.
 :::
 
 ::: warning
-OpenAPI 2 only allows one example per model/property/parameter. Although OpenAPI 3 supports multiple examples, tsoa does not support this behavior yet.
-If this is something you want to see or need, we'd love to receive a PR for that.
+OpenAPI 2 only allows one example per model/property/parameter.  
+If you defined more than one example in OpenAPI 2, tsoa will only apply first one as value.  
+OpenAPI 3 examples is now supported!  
 :::
 
 ## Response examples
@@ -100,11 +101,12 @@ For more info, check out the relevant parts of the [OpenAPI Specification](https
 
 :::
 
-```ts {4}
+```ts {4-5}
 @Route("users")
 export class UsersController extends Controller {
   /**
    * @example userId "52907745-7672-470e-a803-a2f8feb52944"
+   * @example userId "e77ef155-bd12-46f0-8559-bf55f6dd4c63"
    */
   @Get("{userId}")
   public async getUser(
@@ -118,7 +120,12 @@ export class UsersController extends Controller {
 
 ## Model examples
 
-```ts {5,14-18}
+::: warning
+Both OpenAPI 2 and 3 supports only single example in model.  
+If you use more than one example, it will only apply the first one.
+:::
+
+```ts {5}
 /**
  * Stringified UUIDv4.
  * See [RFC 4112](https://tools.ietf.org/html/rfc4122)
@@ -126,7 +133,14 @@ export class UsersController extends Controller {
  * @example "52907745-7672-470e-a803-a2f8feb52944"
  */
 export type UUID = string;
-
+```
+  
+::: warning
+Any example with object or array should be in correct JSON-format.  
+Otherwise, tsoa will throws error while generating OAS.  
+:::
+  
+```ts {6-10}
 /**
  * User objects allow you to associate actions performed in the system with the user that performed them.
  * The User object contains common information across every user in the system regardless of status and role.
