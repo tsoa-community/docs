@@ -260,7 +260,7 @@ app.listen(port, () =>
 
 ## Building the routes file
 
-At this point you may have notices that TypeScript will not find the `RegisterRoutes` import from `build/routes`. That's because we haven't asked tsoa to create that yet.
+At this point you may have noticed that TypeScript will not find the `RegisterRoutes` import from `build/routes`. That's because we haven't asked tsoa to create that yet.
 Let's do that now:
 
 ```shell
