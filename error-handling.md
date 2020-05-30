@@ -149,3 +149,31 @@ public async getResponse(): Promise<TestModel> {
 ```
 
 :::
+
+## Typechecked alternate responses
+
+::: warning
+This section applies to tsoa >=3.1
+:::
+
+In recent versions of tsoa, we have the option to inject a framework-agnostic responder function into our function that we can call to formulate a response that does not comply with the return type of our controller method/status code and headers (which is used for the success response).
+This is especially useful to reply with an error response without the risk of type mismatches associated with throwing errors.
+In order to inject one/more responders, we can use the `@Res()` decorator:
+
+```ts
+import { Route, Controller, Get, Query, Res, TsoaResponse } from 'tsoa'
+
+@Route('/greeting')
+export class GreetingsController extends Controller {
+  /**
+   * @param notFoundResponse The responder function for a not found response
+   */
+  @Get('/')
+  public async greet(@Query() name?: string, @Res() notFoundResponse: TsoaResponse<404, { reason: string }>): Promise<string> {
+    if (!name) {
+      notFoundResponse(404, { reason: "We don't know you yet. Please provide a name" });
+    }
+
+    return `Hello, ${name}`;
+  }
+```
