@@ -271,8 +271,22 @@ Now your routes.ts file should've been created and you can compile TypeScript an
 
 ```shell
 yarn run tsc --outDir build --experimentalDecorators
-node build/server.js
+node build/src/server.js
 ```
+
+::: tip
+
+You may want to add these scripts to your `package.json` at this point:
+
+```js
+"main": "build/src/server.js",
+"scripts": {
+  "build": "tsoa spec-and-routes && tsc",
+  "start": "node build/src/server.js"
+},
+```
+
+:::
 
 ## What's next?
 
