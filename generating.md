@@ -39,9 +39,9 @@ You can find the Reference for the tsoa configuration file [here](https://tsoa-c
 
 For information on the configuration object (tsoa.json), you may also me interested in:
 
-[Configuration definition](https://github.com/lukeautry/tsoa/blob/master/src/config.ts)
+[Configuration definition](https://github.com/lukeautry/tsoa/blob/master/packages/runtime/src/config.ts)
 
-[Configuration sample](https://github.com/lukeautry/tsoa/blob/master/tsoa.jsonn)
+[Configuration sample](https://github.com/lukeautry/tsoa/blob/master/tests/tsoa.json)
 
 ## Programmatic
 
