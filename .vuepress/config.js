@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         text: "API Reference",
-        link: "https://tsoa-community.github.io/reference/globals.html",
+        link: "https://tsoa-community.github.io/reference/index.html",
         position: "left",
       },
       {

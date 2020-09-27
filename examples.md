@@ -134,12 +134,12 @@ If you use more than one example, it will only apply the first one.
  */
 export type UUID = string;
 ```
-  
+
 ::: warning
 Any example with object or array should be in correct JSON-format.  
 Otherwise, tsoa will throws error while generating OAS.  
 :::
-  
+
 ```ts {6-10}
 /**
  * User objects allow you to associate actions performed in the system with the user that performed them.
