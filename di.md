@@ -26,26 +26,27 @@ Now you can create a module that exports either a container or a function as `io
 
 Containers must conform to the following interface.
 ```ts
-interface Container {
-  get<T>: (T) => Controller
+interface IocContainer {
+  get<T>(controller: { prototype: T }): T;
 }
 ```
 
-Functions must conform to the following siganture, where `Request` is your web framework's request object.
+Functions must conform to the following siganture, where `request` is your web framework's request object.
 ```ts
-(request: Request) => Container
+type IocContainerFactory = (request: unknown) => IocContainer;
 ```
 
 ### Example
 ```ts
 // src/ioc.ts
+import { IocContainer, IocContainerFactory } from '@tsoa/runtime';
 import { Container } from "di-package";
 
 // Assign a container to `iocContainer`.
 const iocContainer = new Container();
 
 // Or assign a function with to `iocContainer`.
-const iocContainer = function (request: Request) {
+const iocContainer: IocContainerFactory = function (request: Request): IocContainer {
   const container = new Container();
   container.bind(request);
   return container;
