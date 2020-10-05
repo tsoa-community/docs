@@ -31,7 +31,7 @@ interface IocContainer {
 }
 ```
 
-Functions must conform to the following siganture, where `request` is your web framework's request object.
+Functions must conform to the following signature, where `request` is your web framework's request object.
 ```ts
 type IocContainerFactory = (request: unknown) => IocContainer;
 ```
