@@ -20,12 +20,44 @@ To tell `tsoa` to use your DI-container you have to reference your module export
 }
 ```
 
-::: warning
-The convention is that you have to name your `Container iocContainer` and export it in the given module.
-:::
+## IoC Module
+
+Now you can create a module that exports either a container or a function as `iocContainer`.
+
+Containers must conform to the following interface.
+```ts
+interface IocContainer {
+  get<T>(controller: { prototype: T }): T;
+}
+```
+
+Functions must conform to the following signature, where `request` is your web framework's request object.
+```ts
+type IocContainerFactory = (request: unknown) => IocContainer;
+```
+
+### Example
+```ts
+// src/ioc.ts
+import { IocContainer, IocContainerFactory } from '@tsoa/runtime';
+import { Container } from "di-package";
+
+// Assign a container to `iocContainer`.
+const iocContainer = new Container();
+
+// Or assign a function with to `iocContainer`.
+const iocContainer: IocContainerFactory = function (request: Request): IocContainer {
+  const container = new Container();
+  container.bind(request);
+  return container;
+}
+
+// export according to convention
+export { iocContainer }
+```
 
 ::: tip
-If you want to use another DI framework, adding it isn't hard.
+If you want to use a DI framework other than the examples below, adding it isn't hard.
 If you set an iocModule, tsoa will call this module (to get a `FooController`) with:
 
 ```ts
