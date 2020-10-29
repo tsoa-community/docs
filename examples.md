@@ -16,14 +16,14 @@ but also contain [descriptions](./descriptions) and correct examples.
 :::
 
 ::: warning
-OpenAPI 2 only allows one example per model/property/parameter.  
-If you defined more than one example in OpenAPI 2, tsoa will only apply first one as value.  
-OpenAPI 3 examples is now supported!  
+OpenAPI 2 only allows one example per model/property/parameter.
+If you defined more than one example in OpenAPI 2, tsoa will only apply first one as value.
+OpenAPI 3 examples is now supported!
 :::
 
 ## Response examples
 
-In order to provide an example response, tsoa offers a [`@Example()`](https://tsoa-community.github.io/reference/globals.html#example) Decorator.
+In order to provide an example response, tsoa offers a [`@Example()`](https://tsoa-community.github.io/reference/modules/_tsoa_runtime.html#example-1e) Decorator.
 
 ::: tip
 Providing the type you're writing the example for as a type argument `T` to
@@ -36,7 +36,7 @@ is not necessary, but may help you catch bugs.
 :::
 
 This decorator is used to specify a response for the default response,
-but you can add examples for other responses ([`@Response()`](https://tsoa-community.github.io/reference/globals.html#response), used for additional responses, often caused by [errors](./error-handling#specifying-error-response-types-for-openapi) by providing them as the third argument as well.
+but you can add examples for other responses ([`@Response()`](https://tsoa-community.github.io/reference/modules/_tsoa_runtime.html#response-1), used for additional responses, often caused by [errors](./error-handling#specifying-error-response-types-for-openapi) by providing them as the third argument as well.
 
 ### Default response
 
@@ -121,7 +121,7 @@ export class UsersController extends Controller {
 ## Model examples
 
 ::: warning
-Both OpenAPI 2 and 3 supports only single example in model.  
+Both OpenAPI 2 and 3 supports only single example in model.
 If you use more than one example, it will only apply the first one.
 :::
 
@@ -136,8 +136,8 @@ export type UUID = string;
 ```
 
 ::: warning
-Any example with object or array should be in correct JSON-format.  
-Otherwise, tsoa will throws error while generating OAS.  
+Any example with object or array should be in correct JSON-format.
+Otherwise, tsoa will throws error while generating OAS.
 :::
 
 ```ts {6-10}
