@@ -25,6 +25,7 @@ To tell `tsoa` to use your DI-container you have to reference your module export
 Now you can create a module that exports either a container or a function as `iocContainer`.
 
 Containers must conform to the following interface.
+
 ```ts
 interface IocContainer {
   get<T>(controller: { prototype: T }): T;
@@ -32,28 +33,32 @@ interface IocContainer {
 ```
 
 Functions must conform to the following signature, where `request` is your web framework's request object.
+
 ```ts
 type IocContainerFactory = (request: unknown) => IocContainer;
 ```
 
 ### Example
+
 ```ts
 // src/ioc.ts
-import { IocContainer, IocContainerFactory } from '@tsoa/runtime';
+import { IocContainer, IocContainerFactory } from "@tsoa/runtime";
 import { Container } from "di-package";
 
 // Assign a container to `iocContainer`.
 const iocContainer = new Container();
 
 // Or assign a function with to `iocContainer`.
-const iocContainer: IocContainerFactory = function (request: Request): IocContainer {
+const iocContainer: IocContainerFactory = function (
+  request: Request
+): IocContainer {
   const container = new Container();
   container.bind(request);
   return container;
-}
+};
 
 // export according to convention
-export { iocContainer }
+export { iocContainer };
 ```
 
 ::: tip
@@ -96,6 +101,13 @@ export { iocContainer };
 ```
 
 We usually don't want to create a new controller instance for every call, so let's create a convenience wrapper around [`@fluentProvide()`](https://github.com/inversify/inversify-binding-decorators#fluent-binding-decorator)
+
+::: danger
+
+If you rely on controller state (for example, because you're using `this.setHeaders` inherited by [Controller](https://tsoa-community.github.io/reference/classes/_tsoa_runtime.controller-1.html)), you need to inject a new Controller for every request.
+Instead of `@provideSingleton`, please make sure to use `@fluentProvide` directly (which is the default way to `fluentProvide(identifier).inTransientScope()`).
+
+:::
 
 ```ts
 // src/util/provideSingleton.ts
