@@ -33,6 +33,9 @@ First, define the security definitions for OpenAPI, and also configure where the
 ```
 
 In the middleware, export the function based on which library (Express, Koa, Hapi) you are using. You only create 1 function to handle all authenticate types. The `securityName` and `scopes` come from the annotation you put above your controller function.
+
+\* *securityDefinitions* name and *securityName* name should be the same
+
 `./authentication.ts`
 
 ```ts
@@ -44,7 +47,7 @@ export function expressAuthentication(
   securityName: string,
   scopes?: string[]
 ): Promise<any> {
-  if (securityName === "api_token") {
+  if (securityName === "api_key") {
     let token;
     if (request.query && request.query.access_token) {
       token = request.query.access_token;
@@ -114,7 +117,7 @@ import { Get, Route, Security, Response } from "tsoa";
 @Route("secure")
 export class SecureController {
   @Response<ErrorResponseModel>("Unexpected error")
-  @Security("api_token")
+  @Security("api_key")
   @Get("UserInfo")
   public async userInfo(@Request() request: any): Promise<UserResponseModel> {
     return Promise.resolve(request.user);
