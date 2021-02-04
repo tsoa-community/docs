@@ -171,7 +171,7 @@ export class GreetingsController extends Controller {
   @Get('/')
   public async greet(@Query() name?: string, @Res() notFoundResponse: TsoaResponse<404, { reason: string }>): Promise<string> {
     if (!name) {
-      notFoundResponse(404, { reason: "We don't know you yet. Please provide a name" });
+      return notFoundResponse(404, { reason: "We don't know you yet. Please provide a name" });
     }
 
     return `Hello, ${name}`;
