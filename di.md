@@ -145,6 +145,55 @@ export class FooService {
 }
 ```
 
+## TSyringe
+
+Here's an example using [TSyringe](https://github.com/microsoft/tsyringe).
+
+```ts
+// src/lib/tsyringeTsoaIocContainer.ts
+// Target this file in your tsoa.json's "iocModule" property
+
+import { IocContainer } from '@tsoa/runtime';
+import { container } from 'tsyringe';
+
+export const iocContainer: IocContainer = {
+  get: <T>(controller: { prototype: T }): T => {
+    return container.resolve<T>(controller as never);
+  },
+};
+```
+
+```ts
+// src/services/FooService.ts
+
+import { singleton } from 'tsyringe';
+// ...
+
+@singleton()
+export class FooService {
+  // ...
+}
+```
+
+```ts
+// src/controllers/FooController.ts
+
+import { Controller, Route } from 'tsoa';
+import { injectable } from 'tsyringe';
+import { FooService } from '../services/FooService';
+// ...
+
+@injectable()
+@Route('foo')
+export class FooController extends Controller {
+  constructor(private fooService: FooService) {
+    super();
+  }
+  
+  // ...
+}
+```
+
 ## typescript-ioc
 
 Here is some example code to setup the controller with typescript-ioc.
