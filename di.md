@@ -147,13 +147,13 @@ export class FooService {
 
 ## typescript-ioc
 
-Here is some example code to setup the controller with typescript-ioc.
+Here is some example code to setup the controller with [typescript-ioc](https://github.com/thiagobustamante/typescript-ioc).
 
 `./controllers/fooController.ts`
 
 ```ts
 import { Route } from 'tsoa';
-import { Inject, Provides } from "typescript-ioc";
+import { Inject, Singleton } from "typescript-ioc";
 
 @Route('foo')
 export class FooController {
@@ -164,7 +164,7 @@ export class FooController {
 
 }
 
-@Provides(FooService)
+@Singleton
 export class FooService {
 
 }
