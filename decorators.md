@@ -1,11 +1,11 @@
 # Decorators
 
-Please note that this Section only covers Decorators that are not described separately, such as [`@Response`]("error-handling") or [`Parameters`]("getting-started").
-For a full overview, please check out the [API Reference](https://tsoa-community.github.io/reference/globals.html).
+Please note that this Section only covers Decorators that are not described separately, such as [`@Response`]("error-handling") or [`@Parameters`]("getting-started").
+For a full overview, please check out the [API Reference](https://tsoa-community.github.io/reference/index.html).
 
 ## Security
 
-The `Security` decorator can be used above controller methods to indicate that there should be authentication before running those methods. As described above, the authentication is done in a file that's referenced in tsoa's configuration. When using the `Security` decorator, you can choose between having one or multiple authentication methods. If you choose to have multiple authentication methods, you can choose between having to pass one of the methods (OR):
+The `@Security` decorator can be used above controller methods to indicate that there should be authentication before running those methods. As described above, the authentication is done in a file that's referenced in tsoa's configuration. When using the `@Security` decorator, you can choose between having one or multiple authentication methods. If you choose to have multiple authentication methods, you can choose between having to pass one of the methods (OR):
 
 ```ts
 @Security('tsoa_auth', ['write:pets', 'read:pets'])
@@ -90,8 +90,11 @@ public async find(): Promise<any> {
 
 ## Deprecated
 
-Declares this endpoint to be deprecated. Useful for when you are migrating endpoints and wants to keep a outdated
-version live until all consumers migrate to use the new endpoint version.
+OpenAPI allows you to deprecate [operations](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#user-content-operationdeprecated), [parameters](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#user-content-parameterdeprecated), and [schemas](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#user-content-schemadeprecated). This lets you indicate that certain endpoint/formats/etc. should no longer be used, while allowing clients time to migrate to the new approach.
+
+To deprecate parts of your API, you can attach the `@Deprecated` decorator to class properties, methods, and parameters. For constructs that don't support decorators (e.g. interfaces and type aliases), you can use a `@deprecated` JSDoc annotation. Some examples:
+
+### Operations
 
 ```ts
 @Get()
@@ -100,6 +103,43 @@ public async find(): Promise<any> {
 
 }
 ```
+
+### Parameters (OpenAPI 3+ only)
+
+```ts
+@Get("v2")
+public async findV2(
+  @Query() text: string,
+  @Deprecated() @Query() dontUse?: string
+): Promise<any> {
+
+}
+```
+
+### Schemas (OpenAPI 3+ only)
+
+```ts
+class CreateUserRequest {
+  name: string;
+  @Deprecated() firstName?: string;
+
+  constructor(
+    public emailAddress: string,
+    @Deprecated() public icqHandle?: string
+  ) {}
+}
+
+interface CreateUserResponse {
+  /** @deprecated */ durationMs?: number;
+  details: UserDetails;
+}
+
+type UserDetails = {
+  name: string;
+  /** @deprecated */ firstName?: string;
+};
+```
+
 
 ## Hidden
 
