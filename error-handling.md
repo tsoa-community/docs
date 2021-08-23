@@ -33,7 +33,7 @@ import express, {
   Request as ExRequest,
   NextFunction,
 } from "express";
-
+import { ValidateError } from 'tsoa';
 // ...
 
 app.use(function errorHandler(
