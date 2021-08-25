@@ -47,7 +47,7 @@ Let's automatically start this setup with `yarn run dev`, and, while we're at it
 {
   "name": "starter",
   "version": "0.0.1",
-+ "scripts: {
++ "scripts": {
 +   "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
 +   "build": "tsoa spec-and-routes && tsc",
 +   "start": "node build/src/server.js"
