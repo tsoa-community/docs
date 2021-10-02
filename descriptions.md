@@ -190,3 +190,20 @@ export interface User {
   phoneNumbers: string[];
 }
 ```
+
+## Summaries
+
+tsoa uses short descriptions provided via the JSDoc ![`@summary`](https://jsdoc.app/tags-summary.html) annotation and will use it as the summary in the OpenAPI doc:
+
+```ts {5}
+  /**
+   * A very long, verbose, wordy, long-winded, tedious, verbacious, tautological,
+   * profuse, expansive, enthusiastic, redundant, flowery, eloquent, articulate,
+   * loquacious, garrulous, chatty, extended, babbling description.
+   * @summary A concise summary.
+   */
+  @Get('SummaryMethod')
+  public async summaryMethod(): Promise<TestModel> {
+    return new ModelService().getModel();
+  }
+```
