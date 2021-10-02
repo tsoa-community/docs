@@ -158,7 +158,7 @@ Which will look like like this when rendered:
 
 </details>
 
-</br>
+<br>
 :::
 
 ## Property descriptions

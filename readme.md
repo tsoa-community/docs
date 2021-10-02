@@ -1,11 +1,13 @@
 ---
 home: true
+title: Home
 heroText: tsoa
 tagline: OpenAPI-compliant REST APIs using TypeScript and Node
 navbar: true
 sidebar: false
-actionText: Get Started →
-actionLink: /introduction/
+actions:
+  - text: Get Started →
+    link: /introduction/
 pageClass: home-class
 footer: MIT Licensed
 ---
