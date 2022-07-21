@@ -67,7 +67,7 @@ Formats will generally not be validated, except for `format: date(time)`, which 
 - isArray for setting custom error messages
 - minItems
 - maxItems
-- unique
+- uniqueItems
 
 #### Boolean
 
