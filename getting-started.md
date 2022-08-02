@@ -222,7 +222,7 @@ If the parameter name is equal to the http message parameter, you may omit the a
 
 :::
 
-A full list of all the decorators can be found [here](https://tsoa-community.github.io/reference/modules/_tsoa_runtime.html#body-1).
+A full list of all the decorators can be found [here](https://tsoa-community.github.io/docs/decorators.html).
 
 ::: warning Caveat
 Always use a named export (`export class C`) on the controller class in order for tsoa to correctly pick it up.
