@@ -1,0 +1,1 @@
+const e={key:"v-0a266479",path:"/templates.html",title:"Overriding route template",lang:"en-US",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1588193186e3,contributors:[{name:"WoH",email:"wolfgang.hobmaier@sensoring.de",commits:1}]},filePathRelative:"templates.md"};export{e as data};

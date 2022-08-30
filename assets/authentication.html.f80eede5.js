@@ -1,0 +1,1 @@
+const t={key:"v-691979c8",path:"/authentication.html",title:"Authentication",lang:"en-US",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1605603103e3,contributors:[{name:"Roman Matkivskyy",email:"roman91@live.it",commits:1},{name:"WoH",email:"wolfgang.hobmaier@sensoring.de",commits:1}]},filePathRelative:"authentication.md"};export{t as data};
