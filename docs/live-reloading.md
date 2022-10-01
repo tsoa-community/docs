@@ -113,7 +113,7 @@ in your `tsconfig.json` file.
 
 ### Inspecting the Documentation
 
-Now, when we navigate to [localhost:3000/docs](http://localhost:3000/docs), we should see a current reflection of our API.
+Now, when we navigate to <a href="http://localhost:3000/docs" target="_blank" rel="noreferrer">localhost:3000/docs</a>, we should see a current reflection of our API.
 
 ![SwaggerUI](./assets/SwaggerUI.png)
 

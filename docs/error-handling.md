@@ -8,10 +8,10 @@ lang: en-US
 ::: warning COMPATIBILITY NOTE
 This guide requires Node.js >= 8 and will target [express](https://expressjs.com).
 We currently recommend using [Yarn](https://yarnpkg.com/en/), npm should work but was not tested.
-This guide assumes you followed the [getting started guide]('/getting-started') or have a similar setup.
+This guide assumes you followed the [getting started guide](./getting-started) or have a similar setup.
 :::
 
-As you may have noticed after following all the steps from the [getting started guide]('/getting-started'), our server does not allow for invalid parameters, but the response isn't very ideal yet.
+As you may have noticed after following all the steps from the [getting started guide](./getting-started), our server does not allow for invalid parameters, but the response isn't very ideal yet.
 
 ![Current Error Response](./assets/errors-server.png)
 
