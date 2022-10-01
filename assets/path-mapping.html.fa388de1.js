@@ -1,1 +1,0 @@
-const t={key:"v-3b031b9a",path:"/path-mapping.html",title:"",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:3,title:"Path mapping",slug:"path-mapping",children:[]}],git:{updatedTime:1588193186e3,contributors:[{name:"WoH",email:"wolfgang.hobmaier@sensoring.de",commits:1}]},filePathRelative:"path-mapping.md"};export{t as data};
