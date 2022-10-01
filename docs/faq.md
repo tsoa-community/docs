@@ -9,6 +9,11 @@ lang: en-US
 
 Yes, set `spec.specVersion` to `3` in your `tsoa.json` file. See more config options by looking at [the config type definition](https://github.com/lukeautry/tsoa/blob/master/src/config.ts).
 
+## How do I use tsoa with koa, hapi, or other frameworks?
+
+Set the middleware property in your tsoa config. Out of the box, express, hapi and koa are supported.
+You can also provide a custom template, for more information, please check out [the guide](./templates.md)
+
 ## How to ensure no additional properties come in at runtime
 
 By default, OpenAPI allows for models to have [`additionalProperties`](https://swagger.io/docs/specification/data-models/dictionaries/). If you would like to ensure at runtime that the data has only the properties defined in your models, set the `noImplicitAdditionalProperties` [config](https://github.com/lukeautry/tsoa/blob/master/src/config.ts) option to either `"silently-remove-extras"` or `"throw-on-extras"`.

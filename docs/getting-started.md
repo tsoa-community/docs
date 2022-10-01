@@ -26,8 +26,8 @@ git init
 yarn init -y
 
 # Add our dependencies
-yarn add tsoa express body-parser
-yarn add -D typescript @types/node @types/express @types/body-parser
+yarn add tsoa express
+yarn add -D typescript @types/node @types/express
 
 # Initialize tsconfig.json
 yarn run tsc --init
@@ -235,19 +235,18 @@ Let's now create an `app.ts` and a `server.ts` file in our source directory like
 
 ```ts
 // src/app.ts
-import express from "express";
-import bodyParser from "body-parser";
+import express, {json, urlencoded} from "express";
 import { RegisterRoutes } from "../build/routes";
 
 export const app = express();
 
 // Use body parser to read sent json payloads
 app.use(
-  bodyParser.urlencoded({
+  urlencoded({
     extended: true,
   })
 );
-app.use(bodyParser.json());
+app.use(json());
 
 RegisterRoutes(app);
 ```
@@ -269,6 +268,7 @@ At this point you may have noticed that TypeScript will not find the `RegisterRo
 Let's do that now:
 
 ```shell
+mkdir -p build # Create the build directory if it doesn't exist
 yarn run tsoa routes
 ```
 
