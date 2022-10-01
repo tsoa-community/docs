@@ -1,4 +1,5 @@
 node_modules/
-.vuepress/dist
-.vuepress/.temp
-.vuepress/.cache
+.vitepress/dist
+.vitepress/.temp
+.vitepress/.cache
+yarn-error.log
