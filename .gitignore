@@ -1,5 +1,5 @@
 node_modules/
-.vitepress/dist
-.vitepress/.temp
-.vitepress/.cache
+docs/.vitepress/dist
+docs/.vitepress/.temp
+docs/.vitepress/.cache
 yarn-error.log

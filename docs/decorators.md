@@ -1,6 +1,6 @@
 # Decorators
 
-Please note that this Section only covers Decorators that are not described separately, such as [`@Response`]("error-handling") or [`@Parameters`]("getting-started").
+Please note that this Section only covers Decorators that are not described separately, such as [`@Response`](./error-handling) or [`@Parameters`](./getting-started).
 For a full overview, please check out the [API Reference](https://tsoa-community.github.io/reference/index.html).
 
 ## Security
