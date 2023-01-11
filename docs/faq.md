@@ -41,4 +41,4 @@ export interface MyModel {
 
 ## How can I get the most from my OAS?
 
-Now that you have a OpenAPI Specification (OAS) (swagger.json), you can use all kinds of amazing tools that generate documentation, client SDKs, and more [here](http://openapi.tools//)
+Now that you have a OpenAPI Specification (OAS) (swagger.json), you can use all kinds of amazing tools that generate documentation, client SDKs, and more [here](http://openapi.tools).
