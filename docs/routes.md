@@ -4,7 +4,7 @@ You have two options for how to tell tsoa where it can find the controllers that
 
 ## Using automatic controllers discovery
 
-You can tell `tsoa` to use your automatic controllers discovery by providing a [minimatch glob](http://www.globtester.com/) in the [config](https://github.com/lukeautry/tsoa/blob/master/src/config.ts) file (e.g. `tsoa.json`). It can be provided on `config.spec` or `config.routes`.
+You can tell `tsoa` to use your automatic controllers discovery by providing a [minimatch glob](http://www.globtester.com/) in the [config](https://github.com/lukeautry/tsoa/blob/master/packages/runtime/src/config.ts) file (e.g. `tsoa.json`). It can be provided on `config.spec` or `config.routes`.
 
 Pros:
 

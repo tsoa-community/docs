@@ -3,7 +3,7 @@
 By default all the controllers are created by the auto-generated routes template using an empty default constructor.
 If you want to use dependency injection and let the DI-framework handle the creation of your controllers, we need set up an IoC Module tsoa can call.
 
-To tell `tsoa` to use your DI-container you have to reference your module exporting the DI-container in the [config](https://github.com/lukeautry/tsoa/blob/master/src/config.ts) file (e.g. `tsoa.json`):
+To tell `tsoa` to use your DI-container you have to reference your module exporting the DI-container in the [config](https://github.com/lukeautry/tsoa/blob/master/packages/runtime/src/config.ts) file (e.g. `tsoa.json`):
 
 ```js
 {
