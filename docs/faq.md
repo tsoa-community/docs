@@ -7,7 +7,7 @@ lang: en-US
 
 ## Can I use OpenAPI 3 instead of OpenAPI 2 (formerly Swagger)?
 
-Yes, set `spec.specVersion` to `3` in your `tsoa.json` file. See more config options by looking at [the config type definition](https://github.com/lukeautry/tsoa/blob/master/src/config.ts).
+Yes, set `spec.specVersion` to `3` in your `tsoa.json` file. See more config options by looking at [the config type definition](https://github.com/lukeautry/tsoa/blob/master/packages/runtime/src/config.ts).
 
 ## How do I use tsoa with koa, hapi, or other frameworks?
 
@@ -16,7 +16,7 @@ You can also provide a custom template, for more information, please check out [
 
 ## How to ensure no additional properties come in at runtime
 
-By default, OpenAPI allows for models to have [`additionalProperties`](https://swagger.io/docs/specification/data-models/dictionaries/). If you would like to ensure at runtime that the data has only the properties defined in your models, set the `noImplicitAdditionalProperties` [config](https://github.com/lukeautry/tsoa/blob/master/src/config.ts) option to either `"silently-remove-extras"` or `"throw-on-extras"`.
+By default, OpenAPI allows for models to have [`additionalProperties`](https://swagger.io/docs/specification/data-models/dictionaries/). If you would like to ensure at runtime that the data has only the properties defined in your models, set the `noImplicitAdditionalProperties` [config](https://github.com/lukeautry/tsoa/blob/master/packages/runtime/src/config.ts) option to either `"silently-remove-extras"` or `"throw-on-extras"`.
 Caveats:
 
 - The following types will always allow additional properties due to the nature of the way they work:
