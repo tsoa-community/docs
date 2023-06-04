@@ -211,7 +211,7 @@ While express allows you to use regex-ish route definitions, we prefer to split 
 Because you're asking for the _id_ to be a _number_ by using the `@Path()` decorator with an `userId` of type number, tsoa will reject passing i.e. a _string_ here.
 Similarly, if you want to accept a _string_ with a certain pattern, you can do that using JSON Schema annotations. You can learn more about that [here](#what-s-next).
 
-tsoa will allow 4 types of parameters: Path parameters (using `@Path()`), Query Parameters (`@Query()`), Header Parameters (`@Header()`) and Body Parameters (`@Body()` or individual properties using `@BodyProp()`).
+tsoa will allow 4 types of parameters: Path parameters (using `@Path()`), Query Parameters (`@Query()`or `@Queries()`), Header Parameters (`@Header()`) and Body Parameters (`@Body()` or individual properties using `@BodyProp()`).
 
 ::: tip
 If the parameter name is equal to the http message parameter, you may omit the argument to the decorators, otherwise you may provide an argument:
