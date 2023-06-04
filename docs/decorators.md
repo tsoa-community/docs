@@ -201,7 +201,6 @@ export class UsersController {
   }
 }
 ```
-@Inject
 To access Koa's request object (which has the ctx object) in a controller method use the `@Request`-decorator:
 
 ```typescript
