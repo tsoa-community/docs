@@ -231,7 +231,7 @@ In this case you should write your own custom template where you inject the need
 
 ## Produces
 
-The `@Produces` decorator is used to define custom media types for the responses of controller methods in the OpenAPI generator for TypeScript. It allows you to specify a specific media type for each method, without overwriting the default Content-Type response.
+The `@Produces` decorator is used to define custom media types for the responses of controller methods in the OpenAPI generator. It allows you to specify a specific media type for each method, without overwriting the default Content-Type response.
 
 Here's an example of how to use the `@Produces` decorator:
 
