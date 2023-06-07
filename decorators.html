@@ -7,7 +7,7 @@
     <meta name="description" content="A VitePress site">
     <link rel="stylesheet" href="/docs/assets/style.0ba13b62.css">
     <link rel="modulepreload" href="/docs/assets/app.3cf33814.js">
-    <link rel="modulepreload" href="/docs/assets/decorators.md.d425440f.lean.js">
+    <link rel="modulepreload" href="/docs/assets/decorators.md.a480cf6d.lean.js">
     
     <script id="check-dark-light">(()=>{const e=localStorage.getItem("vitepress-theme-appearance"),a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
   </head>
@@ -74,6 +74,18 @@
 <span class="line"><span style="color:#A6ACCD;">public async </span><span style="color:#82AAFF;">findV2</span><span style="color:#A6ACCD;">(</span></span>
 <span class="line"><span style="color:#A6ACCD;">  @</span><span style="color:#82AAFF;">Query</span><span style="color:#A6ACCD;">() text: string</span><span style="color:#89DDFF;">,</span></span>
 <span class="line"><span style="color:#A6ACCD;">  @</span><span style="color:#82AAFF;">Deprecated</span><span style="color:#A6ACCD;">() @</span><span style="color:#82AAFF;">Query</span><span style="color:#A6ACCD;">() dontUse</span><span style="color:#89DDFF;">?:</span><span style="color:#A6ACCD;"> string</span></span>
+<span class="line"><span style="color:#A6ACCD;">): </span><span style="color:#FFCB6B;">Promise</span><span style="color:#89DDFF;">&lt;</span><span style="color:#A6ACCD;">any</span><span style="color:#89DDFF;">&gt;</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre></div><div class="language-ts"><button class="copy"></button><span class="lang">ts</span><pre><code><span class="line"><span style="color:#C792EA;">interface</span><span style="color:#A6ACCD;"> </span><span style="color:#FFCB6B;">QueryParams</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#F07178;">text</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#FFCB6B;">string</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#F07178;">sort</span><span style="color:#89DDFF;">?:</span><span style="color:#A6ACCD;"> </span><span style="color:#FFCB6B;">string</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#F07178;">page</span><span style="color:#89DDFF;">?:</span><span style="color:#A6ACCD;"> </span><span style="color:#FFCB6B;">number</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#89DDFF;">@</span><span style="color:#82AAFF;">Get</span><span style="color:#A6ACCD;">(</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">v2</span><span style="color:#89DDFF;">&quot;</span><span style="color:#A6ACCD;">)</span></span>
+<span class="line"><span style="color:#A6ACCD;">public async </span><span style="color:#82AAFF;">findV2</span><span style="color:#A6ACCD;">(</span></span>
+<span class="line"><span style="color:#A6ACCD;">  @</span><span style="color:#82AAFF;">Queries</span><span style="color:#A6ACCD;">() queryParams: QueryParams</span></span>
 <span class="line"><span style="color:#A6ACCD;">): </span><span style="color:#FFCB6B;">Promise</span><span style="color:#89DDFF;">&lt;</span><span style="color:#A6ACCD;">any</span><span style="color:#89DDFF;">&gt;</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#89DDFF;">}</span></span>
@@ -151,7 +163,7 @@
 <span class="line"><span style="color:#F07178;">  </span><span style="color:#89DDFF;">}</span></span>
 <span class="line"><span style="color:#89DDFF;">}</span></span>
 <span class="line"></span></code></pre></div><div class="danger custom-block"><p class="custom-block-title">DANGER</p><p>Note that the parameter <code>request</code> does not appear in your OAS file. Likewise you can use the decorator <code>@Inject</code> to mark a parameter as being injected manually and should be omitted in Spec generation. In this case you should write your own custom template where you inject the needed objects/values in the method-call.</p></div></div></div></main><!--[--><!--]--><footer class="VPDocFooter" data-v-37ebe389 data-v-a54a85bd><!----><div class="prev-next" data-v-a54a85bd><div class="pager" data-v-a54a85bd><a class="pager-link prev" href="/docs/authentication.html" data-v-a54a85bd><span class="desc" data-v-a54a85bd>Previous page</span><span class="title" data-v-a54a85bd>Authentication</span></a></div><div class="has-prev pager" data-v-a54a85bd><a class="pager-link next" href="/docs/faq.html" data-v-a54a85bd><span class="desc" data-v-a54a85bd>Next page</span><span class="title" data-v-a54a85bd>FAQ</span></a></div></div></footer><!--[--><!--]--></div></div></div></div></div><!----><!--[--><!--]--></div></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"annotations.md\":\"e2ba985e\",\"authentication.md\":\"8d800d3a\",\"decorators.md\":\"d425440f\",\"descriptions.md\":\"01860d5b\",\"di.md\":\"197a9325\",\"error-handling.md\":\"dccb5150\",\"examples.md\":\"245b4882\",\"faq.md\":\"6d317f6f\",\"file-upload.md\":\"bcaec591\",\"generating.md\":\"e83964ca\",\"getting-started.md\":\"168ee5b0\",\"index.md\":\"4cf454e8\",\"introduction.md\":\"0bfbe7be\",\"live-reloading.md\":\"1faedad3\",\"path-mapping.md\":\"533eab99\",\"routes.md\":\"1f5b313f\",\"templates.md\":\"05772ca0\",\"upgrading.md\":\"48df01d7\"}")</script>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"annotations.md\":\"e2ba985e\",\"authentication.md\":\"8d800d3a\",\"decorators.md\":\"a480cf6d\",\"descriptions.md\":\"01860d5b\",\"di.md\":\"197a9325\",\"error-handling.md\":\"dccb5150\",\"examples.md\":\"245b4882\",\"faq.md\":\"6d317f6f\",\"file-upload.md\":\"bcaec591\",\"generating.md\":\"e83964ca\",\"getting-started.md\":\"b2a936e7\",\"index.md\":\"4cf454e8\",\"introduction.md\":\"0bfbe7be\",\"live-reloading.md\":\"1faedad3\",\"path-mapping.md\":\"533eab99\",\"routes.md\":\"1f5b313f\",\"templates.md\":\"05772ca0\",\"upgrading.md\":\"48df01d7\"}")</script>
     <script type="module" async src="/docs/assets/app.3cf33814.js"></script>
     
   </body>
