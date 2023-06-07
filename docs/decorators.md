@@ -216,7 +216,6 @@ export class UsersController {
   }
 }
 ```
-
 To access Koa's request object (which has the ctx object) in a controller method use the `@Request`-decorator:
 
 ```typescript
@@ -243,4 +242,36 @@ export class UsersController {
 Note that the parameter `request` does not appear in your OAS file.
 Likewise you can use the decorator `@Inject` to mark a parameter as being injected manually and should be omitted in Spec generation.
 In this case you should write your own custom template where you inject the needed objects/values in the method-call.
+:::
+
+## Produces
+
+The `@Produces` decorator is used to define custom media types for the responses of controller methods in the OpenAPI generator. It allows you to specify a specific media type for each method, without overwriting the default Content-Type response.
+
+Here's an example of how to use the `@Produces` decorator:
+
+```typescript
+@Route('MediaTypeTest')
+@Produces('application/vnd.mycompany.myapp+json')
+export class MediaTypeTestController extends Controller {
+  @Get('users/{userId}')
+  public async getDefaultProduces(@Path() userId: number): Promise<UserResponseModel> {
+    this.setHeader('Content-Type', 'application/vnd.mycompany.myapp+json');
+    return Promise.resolve({
+      id: userId,
+      name: 'foo',
+    });
+  }
+  @Get('custom/security.txt')
+  @Produces('text/plain')
+  public async getCustomProduces(): Promise<string> {
+    const securityTxt = 'Contact: mailto: security@example.com\nExpires: 2012-12-12T12:37:00.000Z';
+    this.setHeader('Content-Type', 'text/plain');
+    return securityTxt;
+  }
+}
+```
+
+::: danger
+Please note that using the `@Produces` decorator only affects the generated OpenAPI Specification. You must also ensure that you send the correct header using `this.setHeader('Content-Type', 'MEDIA_TYPE')` in your controller methods.
 :::
