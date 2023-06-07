@@ -1,0 +1,1 @@
+import{_ as s,c as e,o as a,a as o}from"./app.2492403c.js";const d=JSON.parse('{"title":"Overriding route template","description":"","frontmatter":{},"headers":[],"relativePath":"templates.md"}'),t={name:"templates.md"},n=o("",7),l=[n];function p(r,c,i,u,y,F){return a(),e("div",null,l)}const m=s(t,[["render",p]]);export{d as __pageData,m as default};
