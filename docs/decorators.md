@@ -116,6 +116,21 @@ public async findV2(
 }
 ```
 
+```ts
+interface QueryParams {
+  text: string;
+  sort?: string;
+  page?: number;
+}
+
+@Get("v2")
+public async findV2(
+  @Queries() queryParams: QueryParams
+): Promise<any> {
+
+}
+```
+
 ### Schemas (OpenAPI 3+ only)
 
 ```ts
