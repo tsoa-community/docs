@@ -12,6 +12,7 @@ const sidebar: DefaultTheme.Sidebar = [
       { text: "Descriptions", link: "/descriptions" },
       { text: "Examples", link: "/examples" },
       { text: "Annotations", link: "/annotations" },
+      { text: "Custom Middlewares", link: "/custom-middlewares" },
       { text: "Dependency Injection", link: "/di" },
       { text: "Authentication", link: "/authentication" },
       { text: "Decorators", link: "/decorators" },
