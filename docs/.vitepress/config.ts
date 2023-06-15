@@ -36,6 +36,9 @@ export default defineConfig({
   base: process.env.BASE_URL || "/",
   markdown: {},
   themeConfig: {
+    search: {
+      provider: 'local'
+    },
     nav: [
       {
         text: "Home",
