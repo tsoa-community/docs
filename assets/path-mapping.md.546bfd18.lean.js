@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,V as o}from"./chunks/framework.7b697f60.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"path-mapping.md","filePath":"path-mapping.md"}'),p={name:"path-mapping.md"},l=o("",6),t=[l];function e(r,c,F,y,i,D){return n(),a("div",null,t)}const h=s(p,[["render",e]]);export{d as __pageData,h as default};
