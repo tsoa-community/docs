@@ -16,59 +16,73 @@ In general, the JSDoc notation is very similar each time:
 @<keyword> <argument>* <rejectionMessage>?
 ```
 
+Examples:
+
+```typescript {3,4,8,12}
+interface CustomerDto {
+    /**
+     * @isInt we would kindly ask you to provide a number here
+     * @minimum minimum age is 18
+     */
+    age: number;
+    /**
+     * @minLength 1 at least 1 category is required
+     */
+    tags: string[];
+    /**
+     * @pattern ^(.+)@(.+)$ please provide correct email
+     */
+    email: string;
+}
+```
+
 ::: tip
 For parameters, use the `@<keyword> <paramName> <argument>* <rejectionMessage>?` syntax in your JSDoc (similar to [descriptions](#parameter-descriptions) or [examples](#parameter-examples))
 :::
 
-Examples:
-
-`@isInt we would kindly ask you to provide a number here`
-
-`@minLength 1 array must not be empty`
-
-`@maximum headerParameter 4 number must be <4`
-
-### List of supported keywords (with arguments)
+## List of supported keywords (with arguments)
 
 [Click here for the list of keywords supported by OpenAPI 3](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#properties)
 
-#### Generic
+### Generic
 
-- default
-- format
+- `@default`
+- `@format`
 
 ::: danger
 Formats will generally not be validated, except for `format: date(time)`, which will automatically be generated for TS type `Date`.
 :::
 
-#### Date
+### Date
 
-- isDateTime for setting custom error messages
-- isDate for setting custom error messages
-- minDate
-- maxDate
+- `@isDateTime <errMsg>` for setting custom error messages
+- `@isDate <errMsg>` for setting custom error messages
+- `@minDate <errMsg>`
+- `@maxDate <errMsg>`
 
-#### Numeric
+### Numeric
 
-- **isInt (tsoa special since TS does not know integer as a type)**
-- **isFloat (tsoa special since TS does not know integer as a type)**
-- minimum
-- maximum
+- `@isInt <errMsg>` **tsoa special** since TS does not know integer as a type
+- `@isFloat <errMsg>` **tsoa special** since TS does not know integer as a type
+- `@isLong <errMsg>`
+- `@isDouble <errMsg>`
+- `@minimum <number> <errMsg>`
+- `@maximum <number> <errMsg>`
 
-#### String
+### String
 
-- isString for setting custom error messages
-- minLength
-- maxLength
-- pattern
+- `@isString <errMsg>` for setting custom error messages
+- `@minLength <number> <errMsg>`
+- `@maxLength <number> <errMsg>`
+- `@pattern <regex> <errMsg>`
 
-#### Array
+### Array
 
-- isArray for setting custom error messages
-- minItems
-- maxItems
-- uniqueItems
+- `isArray <errMsg>` for setting custom error messages
+- `minItems <number> <errMsg>`
+- `maxItems <number> <errMsg>`
+- `uniqueItems <errMsg>`
 
-#### Boolean
+### Boolean
 
-- isBool for setting custom error messages
+- `isBool <errMsg>` for setting custom error messages
