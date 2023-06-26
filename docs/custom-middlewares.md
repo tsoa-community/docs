@@ -29,3 +29,17 @@ After completing the middleware logic, you must call the `next()` function to pa
 Finally, the request reaches the exampleGetEndpoint method, where you can handle the request and provide the appropriate response.
 
 It's important to note that the order of the decorators and middlewares matters. If multiple middlewares are specified, they are executed in the order they are applied.
+
+## TypeScript Requirements
+
+Using custom middleware requires emitting decorator metadata. You must have these flags enabled in your `tsconfig.json`:
+```js
+{
+  "compilerOptions": {
+    // ...
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    // ...
+  }
+}
+```
