@@ -33,7 +33,7 @@ It's important to note that the order of the decorators and middlewares matters.
 ## TypeScript Requirements
 
 Using custom middleware requires emitting decorator metadata. You must have these flags enabled in your `tsconfig.json`:
-```js
+```jsonc
 {
   "compilerOptions": {
     // ...
