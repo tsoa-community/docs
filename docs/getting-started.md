@@ -69,7 +69,7 @@ For a full list of all the possible config, take a look at the [API Reference](h
 While the default ts config will work for this guide, an improved tsconfig.json would look something like this:
 ::: details
 
-```js
+```jsonc
 {
   "compilerOptions": {
     /* Basic Options */
@@ -101,7 +101,7 @@ While the default ts config will work for this guide, an improved tsconfig.json 
 
     /* Experimental Options */
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    // emitDecoratorMetadata is not needed by tsoa (unless you are using Custom Middlewares)
 
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true
