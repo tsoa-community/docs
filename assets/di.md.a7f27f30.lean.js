@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,V as o}from"./chunks/framework.5a924dd5.js";const A=JSON.parse('{"title":"Dependency injection or IOC","description":"","frontmatter":{},"headers":[],"relativePath":"di.md","filePath":"di.md"}'),l={name:"di.md"},p=o("",33),e=[p];function t(c,r,y,D,F,i){return a(),n("div",null,e)}const d=s(l,[["render",t]]);export{A as __pageData,d as default};
