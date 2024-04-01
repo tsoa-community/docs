@@ -90,13 +90,13 @@ To use it with Koa, pass Koa's Request context object to resolve 'file'. This al
 
 ```ts
 import { Post, Request, Route } from "tsoa";
-import { Request as koaRequest } from "koa";
+import { Request as KoaRequest } from "koa";
 import multer from "multer";
 
 @Route("files")
 export class FilesController {
   @Post("uploadFile")
-  public async uploadFile(@Request() koaRequest: Request): Promise<any> {
+  public async uploadFile(@Request() request: KoaRequest): Promise<any> {
     const multer = multer().single("file");
     await multer(request.ctx, async () => null);
     const multerSingle = multer().single("randomFileIsHere");
