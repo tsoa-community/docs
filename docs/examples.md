@@ -11,7 +11,7 @@ Incorrect examples will not break your compilation, because OpenAPI [explicitly 
 You may also just want to demonstrate tsoa's validation :smirk:
 
 We recommend using a linter
-(we love [Spectral](https://stoplight.io/p/docs/gh/stoplightio/spectral)) to ensure your specifications aren't just correct,
+(we love [Spectral](https://stoplight.io/open-source/spectral)) to ensure your specifications aren't just correct,
 but also contain [descriptions](./descriptions) and correct examples.
 :::
 

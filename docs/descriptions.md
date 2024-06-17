@@ -7,7 +7,7 @@ In order stay true to our efforts to avoid code duplication, tsoa uses JSDoc bas
 tsoa does not check if you provide descriptions.
 
 We recommend using a linter
-(we love [Spectral](https://stoplight.io/p/docs/gh/stoplightio/spectral)) to ensure your specifications aren't just correct,
+(we love [Spectral](https://stoplight.io/open-source/spectral)) to ensure your specifications aren't just correct,
 but also contain descriptions and correct [examples](./examples).
 :::
 
