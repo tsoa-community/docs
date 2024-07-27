@@ -35,7 +35,7 @@ Options:
   --basePath  Base API path                                                                     [string]
 ```
 
-You can find the Reference for the tsoa configuration file [here](https://tsoa-community.github.io/reference/interfaces/_tsoa_runtime.config-1.html)
+You can find the Reference for the tsoa configuration file [here](https://tsoa-community.github.io/reference/interfaces/_tsoa_runtime.Config.html)
 
 For information on the configuration object (tsoa.json), you may also me interested in:
 
