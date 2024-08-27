@@ -63,7 +63,7 @@ Formats will generally not be validated, except for `format: date(time)`, which 
 ### Numeric
 
 - `@isInt <errMsg>` **tsoa special** since TS does not know integer as a type
-- `@isFloat <errMsg>` **tsoa special** since TS does not know integer as a type
+- `@isFloat <errMsg>` **tsoa special** since TS does not know float as a type
 - `@isLong <errMsg>`
 - `@isDouble <errMsg>`
 - `@minimum <number> <errMsg>`
@@ -85,4 +85,4 @@ Formats will generally not be validated, except for `format: date(time)`, which 
 
 ### Boolean
 
-- `isBool <errMsg>` for setting custom error messages
+- `isBoolean <errMsg>` for setting custom error messages
