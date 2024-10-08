@@ -32,6 +32,13 @@ yarn add -D typescript @types/node @types/express
 # Initialize tsconfig.json
 yarn run tsc --init
 ```
+When using pnpm, you will also need to explicitely add the @tsoa/runtime as a dependecy for generated routes.
+This is inherent to the way pnpm manages node_modules (see [pnpm symlinked node_modules structure](https://pnpm.io/symlinked-node-modules-structure)).
+```shell
+
+# Explicitely add @tsoa/runtime with pnpm as it will be needed by generated routes
+pnpm add @tsoa/runtime
+```
 
 ## Configuring tsoa and typescript
 
