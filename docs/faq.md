@@ -42,3 +42,21 @@ export interface MyModel {
 ## How can I get the most from my OAS?
 
 Now that you have a OpenAPI Specification (OAS) (swagger.json), you can use all kinds of amazing tools that generate documentation, client SDKs, and more [here](http://openapi.tools).
+
+## How to override limit for validating large arrays (with more than 20 elements)
+
+By default [Express](https://github.com/expressjs/express) uses [qs](https://github.com/ljharb/qs) as parser internally, and its have default limitation for validating 20 elements in array
+to override this you must add following configuration to your express config:  
+
+```ts
+const app = express();
+
+app.set('query parser', function(str) {
+  return qs.parse(str, { arrayLimit: Infinity });
+});
+
+app.use(bodyParser.json())
+app.use(Router())
+```
+
+Please note that you must place it on top of other middleware.
