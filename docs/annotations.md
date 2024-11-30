@@ -22,11 +22,11 @@ Examples:
 interface CustomerDto {
     /**
      * @isInt we would kindly ask you to provide a number here
-     * @minimum minimum age is 18
+     * @minimum 18 minimum age is 18
      */
     age: number;
     /**
-     * @minLength 1 at least 1 category is required
+     * @minItems 1 at least 1 category is required
      */
     tags: string[];
     /**
