@@ -22,7 +22,7 @@ Examples:
 interface CustomerDto {
     /**
      * @isInt we would kindly ask you to provide a number here
-     * @minimum minimum age is 18
+     * @minimum 18 minimum age is 18
      */
     age: number;
     /**
