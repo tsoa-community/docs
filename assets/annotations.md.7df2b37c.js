@@ -5,7 +5,7 @@ import{_ as e,c as s,o as a,V as t}from"./chunks/framework.5a924dd5.js";const h=
 <span class="line"><span style="color:#676E95;font-style:italic;">     */</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">age</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#FFCB6B;">number</span><span style="color:#89DDFF;">;</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#676E95;font-style:italic;">/**</span></span>
-<span class="line highlighted"><span style="color:#676E95;font-style:italic;">     * </span><span style="color:#89DDFF;font-style:italic;">@</span><span style="color:#C792EA;font-style:italic;">minLength</span><span style="color:#676E95;font-style:italic;"> 1 at least 1 category is required</span></span>
+<span class="line highlighted"><span style="color:#676E95;font-style:italic;">     * </span><span style="color:#89DDFF;font-style:italic;">@</span><span style="color:#C792EA;font-style:italic;">minItems</span><span style="color:#676E95;font-style:italic;"> 1 at least 1 category is required</span></span>
 <span class="line"><span style="color:#676E95;font-style:italic;">     */</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">tags</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#FFCB6B;">string</span><span style="color:#A6ACCD;">[]</span><span style="color:#89DDFF;">;</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#676E95;font-style:italic;">/**</span></span>
