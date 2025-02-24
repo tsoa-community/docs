@@ -26,7 +26,7 @@ interface CustomerDto {
      */
     age: number;
     /**
-     * @minLength 1 at least 1 category is required
+     * @minItems 1 at least 1 category is required
      */
     tags: string[];
     /**
