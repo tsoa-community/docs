@@ -14,6 +14,18 @@ Yes, set `spec.specVersion` to `3` in your `tsoa.json` file. See more config opt
 Set the middleware property in your tsoa config. Out of the box, express, hapi and koa are supported.
 You can also provide a custom template, for more information, please check out [the guide](./templates.md)
 
+A framework that keeps the Express API works with the `express` middleware as it is: the generated routes only need an app to call `RegisterRoutes(app)` on, and `@tsoa/runtime` imports nothing from `express` but its types. [fulmine.js](https://github.com/nigrosimone/fulmine.js), an Express 5 drop-in replacement on uWebSockets.js, runs the `express` routes unchanged and keeps a tsoa application in its own test suite. Keep `"middleware": "express"` in `tsoa.json` and change only the import in your server:
+
+```ts
+import express from "fulmine.js"; // instead of "express"
+import { RegisterRoutes } from "./build/routes";
+
+const app = express();
+app.use(express.json());
+RegisterRoutes(app);
+app.listen(3000);
+```
+
 ## How to ensure no additional properties come in at runtime
 
 By default, OpenAPI allows for models to have [`additionalProperties`](https://swagger.io/docs/specification/data-models/dictionaries/). If you would like to ensure at runtime that the data has only the properties defined in your models, set the `noImplicitAdditionalProperties` [config](https://github.com/lukeautry/tsoa/blob/master/packages/runtime/src/config.ts) option to either `"silently-remove-extras"` or `"throw-on-extras"`.
