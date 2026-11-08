@@ -28,3 +28,13 @@ by defining it in your tsoa.json configuration. Route paths are generated based 
   }
 }
 ```
+
+## Importing a template service
+
+Each framework's template service has its own entry point. The `@tsoa/runtime` and `tsoa` roots do not export them, so custom route templates and classes that extend a template service import them from the subpath:
+
+```ts
+import { ExpressTemplateService } from "@tsoa/runtime/express";
+import { HapiTemplateService } from "@tsoa/runtime/hapi";
+import { KoaTemplateService } from "@tsoa/runtime/koa";
+```

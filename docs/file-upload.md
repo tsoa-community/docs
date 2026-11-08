@@ -52,6 +52,16 @@ export class FilesController {
 
 Note, that using the decorator defaults to saving on the disk with a default file location set to the OS's temp folder.
 
+## Multer options
+
+The generated routes use a default multer instance limited to 8 MB per file. To change its options, pass your own instance to `RegisterRoutes`:
+
+```ts
+import multer from "multer"; // "@koa/multer" on Koa
+
+RegisterRoutes(app, { multer: multer({ dest: "/tmp" }) });
+```
+
 ## Custom multer upload
 
 To customize the multer upload, you have to use multer inside a controller resource.
