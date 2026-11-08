@@ -26,6 +26,19 @@ Caveats:
   - you will need to inform your consumers before setting `noImplicitAdditionalProperties` to `"throw-on-extras"` since it would be a breaking change (due to the fact that request bodies that previously worked would now get an error).
 - Regardless, `"noImplicitAdditionalProperties" : "silently-remove-extras"` is a great choice for both legacy AND new APIs (since this mirrors the behavior of C# serializers and other popular JSON serializers).
 
+## Is a validated request body safe to copy?
+
+Not for every operation. A JSON body can contain an own `__proto__` key, such as `{"kind":"a","__proto__":{"isAdmin":true}}`. Validation keeps that key when the schema allows additional properties, when `noImplicitAdditionalProperties` is `"ignore"`, and inside values typed `any`, which tsoa does not inspect. tsoa keeps it as an ordinary property and does not change the prototype of the object it passes to your controller.
+
+What you do with the body afterwards can still change a prototype:
+
+```ts
+Object.assign(target, body); // target now inherits isAdmin from body.__proto__
+const copy = { ...body }; // copy keeps __proto__ as an own property and its usual prototype
+```
+
+Use object spread to copy a validated body, or set `noImplicitAdditionalProperties` to `"silently-remove-extras"` or `"throw-on-extras"` so the key does not reach your controller.
+
 ## Dealing with duplicate model names
 
 If you have multiple models with the same name, you may get errors indicating that there are multiple matching models. If you'd like to designate a class/interface as the 'canonical' version of a model, add a jsdoc element marking it as such:
