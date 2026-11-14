@@ -13,19 +13,20 @@ This guide compares tsoa 7 with tsoa 6.6.0, the last 6.x release on npm.
 
 ## Checklist
 
-1. [Install the packages for your framework](#install-your-framework-packages-yourself).
-2. Replace imports of `ExpressTemplateService`, `HapiTemplateService` or `KoaTemplateService` [with their subpaths](#import-template-services-from-a-subpath).
-3. Remove `multerOpts` from `tsoa.json` and [pass a multer instance](#multeropts-is-removed).
-4. Rename `@Query` to `@QueryParam` and `@Queries` to `@QueryParams` [in your controllers](#query-and-queries-are-renamed).
-5. If your `tsoa.json` has no `spec.specVersion`, [set it to `2`](#spec-version) to keep Swagger 2.0 output, or move to the new default, OpenAPI 3.1.
-6. Regenerate your routes and your spec, then compare the spec with the old one. Most changes come from [the tsconfig.json tsoa now reads](#tsoa-reads-your-tsconfig-json).
-7. Read [Validation](#validation) and [Responses](#express-responses) if clients depend on exact error messages or response bodies.
+1. Run Node.js 22.12 or later, 24 or 26.
+2. [Install the packages for your framework](#install-your-framework-packages-yourself).
+3. Replace imports of `ExpressTemplateService`, `HapiTemplateService` or `KoaTemplateService` [with their subpaths](#import-template-services-from-a-subpath).
+4. Remove `multerOpts` from `tsoa.json` and [pass a multer instance](#multeropts-is-removed).
+5. Rename `@Query` to `@QueryParam` and `@Queries` to `@QueryParams` [in your controllers](#query-and-queries-are-renamed).
+6. If your `tsoa.json` has no `spec.specVersion`, [set it to `2`](#spec-version) to keep Swagger 2.0 output, or move to the new default, OpenAPI 3.1.
+7. Regenerate your routes and your spec, then compare the spec with the old one. Most changes come from [the tsconfig.json tsoa now reads](#tsoa-reads-your-tsconfig-json).
+8. Read [Validation](#validation) and [Responses](#express-responses) if clients depend on exact error messages or response bodies.
 
 ## Requirements
 
 - TypeScript 5.7 or later, or TypeScript 6.
-- Express 4 or 5, Koa with `@types/koa` 2 or 3, or Hapi 21.
-- The test suite runs on Node.js 22, 24 and 26.
+- Express 4.22.3 or later, or 5.1 or later; Koa with `@types/koa` 2 or 3; Hapi 21; or Fastify 5.
+- Node.js 22.12 or later, 24 or 26. tsoa 6 allowed Node.js 18 and later. npm warns on other versions; Yarn 1 refuses to install.
 
 ## Packages and imports
 
