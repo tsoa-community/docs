@@ -161,7 +161,7 @@ This is especially useful to reply with an error response without the risk of ty
 In order to inject one/more responders, we can use the `@Res()` decorator:
 
 ```ts
-import { Route, Controller, Get, Query, Res, TsoaResponse } from 'tsoa'
+import { Route, Controller, Get, QueryParam, Res, TsoaResponse } from 'tsoa'
 
 @Route('/greeting')
 export class GreetingsController extends Controller {
@@ -169,7 +169,7 @@ export class GreetingsController extends Controller {
    * @param notFoundResponse The responder function for a not found response
    */
   @Get('/')
-  public async greet(@Query() name?: string, @Res() notFoundResponse: TsoaResponse<404, { reason: string }>): Promise<string> {
+  public async greet(@QueryParam() name?: string, @Res() notFoundResponse: TsoaResponse<404, { reason: string }>): Promise<string> {
     if (!name) {
       return notFoundResponse(404, { reason: "We don't know you yet. Please provide a name" });
     }
