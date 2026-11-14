@@ -5,9 +5,9 @@ lang: en-US
 
 # FAQ
 
-## Can I use OpenAPI 3 instead of OpenAPI 2 (formerly Swagger)?
+## Which OpenAPI version does tsoa generate?
 
-Yes, set `spec.specVersion` to `3` in your `tsoa.json` file. See more config options by looking at [the config type definition](https://github.com/lukeautry/tsoa/blob/master/packages/runtime/src/config.ts).
+tsoa 7 generates OpenAPI 3.1 by default. Set `spec.specVersion` in your `tsoa.json` file to `3` for OpenAPI 3.0, or to `2` for Swagger 2.0. tsoa 6 defaulted to Swagger 2.0. See more config options by looking at [the config type definition](https://github.com/lukeautry/tsoa/blob/master/packages/runtime/src/config.ts).
 
 ## How do I use tsoa with koa, hapi, or other frameworks?
 

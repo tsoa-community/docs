@@ -16,8 +16,10 @@ This guide compares tsoa 7 with tsoa 6.6.0, the last 6.x release on npm.
 1. [Install the packages for your framework](#install-your-framework-packages-yourself).
 2. Replace imports of `ExpressTemplateService`, `HapiTemplateService` or `KoaTemplateService` [with their subpaths](#import-template-services-from-a-subpath).
 3. Remove `multerOpts` from `tsoa.json` and [pass a multer instance](#multeropts-is-removed).
-4. Regenerate your routes and your spec, then compare the spec with the old one. Most changes come from [the tsconfig.json tsoa now reads](#tsoa-reads-your-tsconfig-json).
-5. Read [Validation](#validation) and [Responses](#express-responses) if clients depend on exact error messages or response bodies.
+4. Rename `@Query` to `@QueryParam` and `@Queries` to `@QueryParams` [in your controllers](#query-and-queries-are-renamed).
+5. If your `tsoa.json` has no `spec.specVersion`, [set it to `2`](#spec-version) to keep Swagger 2.0 output, or move to the new default, OpenAPI 3.1.
+6. Regenerate your routes and your spec, then compare the spec with the old one. Most changes come from [the tsconfig.json tsoa now reads](#tsoa-reads-your-tsconfig-json).
+7. Read [Validation](#validation) and [Responses](#express-responses) if clients depend on exact error messages or response bodies.
 
 ## Requirements
 
@@ -72,6 +74,23 @@ These changes affect only code that extends tsoa or imports its internal files:
 - `ValidationService.validateBuffer` now takes `(name, value, fieldErrors, parent)` and reports a field error instead of throwing.
 - The generated route templates changed. If you keep a copy as `routes.middlewareTemplate`, start again from the new template.
 
+## Decorators
+
+### `@Query` and `@Queries` are renamed
+
+The parameter decorators `@Query` and `@Queries` are now `@QueryParam` and `@QueryParams`. `@Query` is now a method decorator for the HTTP `QUERY` method (RFC 10008), next to `@Get` and `@Post`.
+
+```diff
+- import { Get, Query, Route } from 'tsoa';
++ import { Get, QueryParam, Route } from 'tsoa';
+
+  @Get()
+- public async list(@Query() page?: number) {}
++ public async list(@QueryParam() page?: number) {}
+```
+
+tsoa keeps no alias for the old names, so TypeScript reports each place you missed. The generated spec and routes do not change.
+
 ## Configuration
 
 ### `multerOpts` is removed
@@ -113,7 +132,13 @@ On TypeScript 6:
 
 ### Spec version
 
-The `tsoa` CLI still generates Swagger 2.0 when `spec.specVersion` is not set. A direct call to `generateSpec()` without `specVersion` now generates OpenAPI 3.1 instead of Swagger 2.0. Set `specVersion` to keep the output you have.
+Without `spec.specVersion`, tsoa now generates OpenAPI 3.1 instead of Swagger 2.0, both from the `tsoa` CLI and from `generateSpec()`. To keep Swagger 2.0, set it:
+
+```json
+"spec": {
+  "specVersion": 2
+}
+```
 
 ## Spec generation
 

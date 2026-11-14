@@ -29,7 +29,7 @@ export class UsersController extends Controller {
   @Get("{userId}")
   public async getUser(
     @Path() userId: number,
-    @Query() name?: string
+    @QueryParam() name?: string
   ): Promise<User> {
     return new UsersService().get(userId, name);
   }
@@ -62,7 +62,7 @@ export class UsersController extends Controller {
   @Get("{userId}")
   public async getUser(
     @Path() userId: number,
-    @Query() name?: string
+    @QueryParam() name?: string
   ): Promise<User> {
     return new UsersService().get(userId, name);
   }

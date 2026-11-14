@@ -50,7 +50,7 @@ pnpm add @tsoa/runtime
   "controllerPathGlobs": ["src/**/*Controller.ts"],
   "spec": {
     "outputDirectory": "build",
-    "specVersion": 3
+    "specVersion": 3.1
   },
   "routes": {
     "routesDir": "build"
@@ -68,7 +68,7 @@ Next, we tell tsoa how strict excess property checking (to use the TypeScript te
 We can choose to "ignore" additional Properties (the OpenAPI default), remove them during validation ("silently-remove-extras"), or throw an Error back to the Client ("throw-on-extras").
 Next, we set the output directory for out OpenAPI specification (OAS) and our `routes.ts` file, which we will talk about later.
 
-We set the `specVersion` to `3` so tsoa will generate an OpenAPI v3 specification.
+We set the `specVersion` to `3.1` so tsoa will generate an OpenAPI 3.1 specification. That is also the default when you leave it out.
 
 For a full list of all the possible config, take a look at the [API Reference](https://tsoa-community.github.io/reference/interfaces/_tsoa_cli.Config.html)
 
@@ -173,7 +173,7 @@ import {
   Get,
   Path,
   Post,
-  Query,
+  QueryParam,
   Route,
   SuccessResponse,
 } from "tsoa";
@@ -185,7 +185,7 @@ export class UsersController extends Controller {
   @Get("{userId}")
   public async getUser(
     @Path() userId: number,
-    @Query() name?: string
+    @QueryParam() name?: string
   ): Promise<User> {
     return new UsersService().get(userId, name);
   }
@@ -218,13 +218,13 @@ While express allows you to use regex-ish route definitions, we prefer to split 
 Because you're asking for the _id_ to be a _number_ by using the `@Path()` decorator with an `userId` of type number, tsoa will reject passing i.e. a _string_ here.
 Similarly, if you want to accept a _string_ with a certain pattern, you can do that using JSON Schema annotations. You can learn more about that [here](#what-s-next).
 
-tsoa will allow 4 types of parameters: Path parameters (using `@Path()`), Query Parameters (`@Query()`or `@Queries()`), Header Parameters (`@Header()`) and Body Parameters (`@Body()` or individual properties using `@BodyProp()`).
+tsoa will allow 4 types of parameters: Path parameters (using `@Path()`), Query parameters (`@QueryParam()` or `@QueryParams()`), Header Parameters (`@Header()`) and Body Parameters (`@Body()` or individual properties using `@BodyProp()`).
 
 ::: tip
 If the parameter name is equal to the http message parameter, you may omit the argument to the decorators, otherwise you may provide an argument:
 
 ```ts
-@Query('my-query') myQuery: string;
+@QueryParam('my-query') myQuery: string;
 ```
 
 :::

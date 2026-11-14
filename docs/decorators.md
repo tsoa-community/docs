@@ -109,15 +109,15 @@ public async find(): Promise<any> {
 ```ts
 @Get("v2")
 public async findV2(
-  @Query() text: string,
-  @Deprecated() @Query() dontUse?: string
+  @QueryParam() text: string,
+  @Deprecated() @QueryParam() dontUse?: string
 ): Promise<any> {
 
 }
 ```
 
 ```ts
-interface QueryParams {
+interface SearchQuery {
   text: string;
   sort?: string;
   page?: number;
@@ -125,7 +125,7 @@ interface QueryParams {
 
 @Get("v2")
 public async findV2(
-  @Queries() queryParams: QueryParams
+  @QueryParams() queryParams: SearchQuery
 ): Promise<any> {
 
 }
@@ -181,14 +181,14 @@ export class HiddenController {
 }
 ```
 
-Use on `@Query` parameters to exclude query params from the generated OpenAPI Specification document. The parameter must either allow undefined or have a default value to be hidden.
+Use on `@QueryParam` parameters to exclude query params from the generated OpenAPI Specification document. The parameter must either allow undefined or have a default value to be hidden.
 
 ```ts
   @Get()
   public async find(
-    @Query() normalParam: string,
-    @Query() @Hidden() defaultSecret = true,
-    @Query() @Hidden() optionalSecret?: string
+    @QueryParam() normalParam: string,
+    @QueryParam() @Hidden() defaultSecret = true,
+    @QueryParam() @Hidden() optionalSecret?: string
   ): Promise<any> {
 
   }
