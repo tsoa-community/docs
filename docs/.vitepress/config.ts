@@ -22,8 +22,16 @@ const sidebar: DefaultTheme.Sidebar = [
     items: [{ text: "FAQ", link: "/faq" }],
   },
   {
+    text: "Upgrading",
+    items: [
+      { text: "Upgrading to tsoa 7", link: "/upgrading-to-v7" },
+      { text: "Upgrading from tsoa 2.5", link: "/upgrading" },
+    ],
+  },
+  {
     text: "Advanced Guides",
     items: [
+      { text: "Framework packages", link: "/frameworks" },
       { text: "File upload", link: "/file-upload" },
       { text: "Path mapping", link: "/path-mapping" },
       { text: "Templates", link: "/templates" },
