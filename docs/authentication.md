@@ -73,7 +73,7 @@ export function expressAuthentication(
       if (!token) {
         reject(new Error("No token provided"));
       }
-      jwt.verify(token, "[secret]", function (err: any, decoded: any) {
+      jwt.verify(token, "[secret]", { algorithms: ["HS256"] }, function (err: any, decoded: any) {
         if (err) {
           reject(err);
         } else {
